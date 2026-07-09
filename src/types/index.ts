@@ -67,6 +67,7 @@ export interface IProject {
   tech: string[];
   role: string;
   timeline: string; // e.g., "Q2 2024"
+  image?: string;
   links: {
     live?: string;
     github?: string;

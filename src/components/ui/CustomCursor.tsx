@@ -29,6 +29,7 @@ export function CustomCursor() {
   const ring = useRef({ x: -100, y: -100 });
   /* useRef instead of useState — prevents stale closure in the rAF loop */
   const isHoveringRef = useRef(false);
+  const isDraggingRef = useRef(false);
   const dots = useRef<Dot[]>([]);
   const raf = useRef<number>(0);
 
@@ -65,12 +66,22 @@ export function CustomCursor() {
     // Detect hoverable elements
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.closest('a, button, [data-cursor-hover]')) {
+      if (target.closest('[data-cursor-drag]')) {
+        isDraggingRef.current = true;
+        isHoveringRef.current = false;
+      } else if (target.closest('a, button, [data-cursor-hover]')) {
         isHoveringRef.current = true;
+        isDraggingRef.current = false;
       }
     };
-    const onMouseOut = () => {
-      isHoveringRef.current = false;
+    const onMouseOut = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('[data-cursor-drag]')) {
+        isDraggingRef.current = false;
+      }
+      if (target.closest('a, button, [data-cursor-hover]')) {
+        isHoveringRef.current = false;
+      }
     };
 
     window.addEventListener('mousemove', onMouseMove);
@@ -82,6 +93,7 @@ export function CustomCursor() {
       // Move dot instantly
       if (dotRef.current) {
         dotRef.current.style.transform = `translate(${mouse.current.x - 5}px, ${mouse.current.y - 5}px)`;
+        dotRef.current.style.opacity = isDraggingRef.current ? '0' : '1';
       }
 
       // Lag ring behind mouse
@@ -89,10 +101,19 @@ export function CustomCursor() {
       ring.current.y += (mouse.current.y - ring.current.y) * 0.12;
       if (ringRef.current) {
         /* Read from ref — always fresh, no stale closure */
-        const size = isHoveringRef.current ? 40 : 24;
+        let size = 24;
+        if (isHoveringRef.current) size = 40;
+        if (isDraggingRef.current) size = 74; // Large enough to fit text
+
         ringRef.current.style.transform = `translate(${ring.current.x - size / 2}px, ${ring.current.y - size / 2}px)`;
         ringRef.current.style.width = `${size}px`;
         ringRef.current.style.height = `${size}px`;
+
+        // Find the span inside the ring to adjust opacity
+        const label = ringRef.current.querySelector('span');
+        if (label) {
+          label.style.opacity = isDraggingRef.current ? '1' : '0';
+        }
       }
 
       // Draw ink trail on canvas
@@ -170,8 +191,24 @@ export function CustomCursor() {
           zIndex: 9997,
           opacity: 0.6,
           transition: 'width 0.2s ease, height 0.2s ease',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
-      />
+      >
+        <span
+          style={{
+            fontSize: '9px',
+            fontWeight: 900,
+            letterSpacing: '0.1em',
+            color: 'var(--accent-red)',
+            opacity: 0,
+            transition: 'opacity 0.2s ease',
+          }}
+        >
+          DRAG
+        </span>
+      </div>
     </>
   );
 }

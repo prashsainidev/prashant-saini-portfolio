@@ -10,7 +10,7 @@ export const siteConfig = {
   work: { display: false },
   education: { display: false },
   skills: { display: true },
-  projects: { display: false },
+  projects: { display: true },
   aiProjects: { display: false },
   openSource: { display: false },
   certifications: { display: false },
