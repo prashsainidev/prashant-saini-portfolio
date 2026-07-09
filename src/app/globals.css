@@ -1,0 +1,293 @@
+@import 'tailwindcss';
+
+/* ============================================
+   DAY MODE (Default — Ink on Paper)
+   ============================================ */
+:root {
+  /* Backgrounds */
+  --bg-primary: #f5f0e8;
+  --bg-secondary: #ede8de;
+  --bg-card: #fdfaf5;
+  --bg-overlay: rgba(245, 240, 232, 0.92);
+
+  /* Text */
+  --text-primary: #1a1512;
+  --text-secondary: #5c4f42;
+  --text-dim: #9c8e82;
+
+  /* Accents — same in both modes */
+  --accent-red: #e63946;
+  --accent-gold: #c9a96e;
+  --accent-blue: #2d5a8a;
+
+  /* Borders */
+  --border: #d8d1c5;
+  --border-accent: #e63946;
+
+  /* Kanji decorative */
+  --kanji-ghost: rgba(26, 21, 18, 0.04);
+
+  /* Shadow */
+  --shadow-sm: 0 2px 8px rgba(26, 21, 18, 0.08);
+  --shadow-md: 0 8px 24px rgba(26, 21, 18, 0.12);
+  --shadow-lg: 0 20px 60px rgba(26, 21, 18, 0.16);
+}
+
+/* ============================================
+   NIGHT MODE — .dark class on <html>
+   ============================================ */
+:root.dark {
+  /* Backgrounds */
+  --bg-primary: #0d0d0b;
+  --bg-secondary: #141412;
+  --bg-card: #1a1a17;
+  --bg-overlay: rgba(13, 13, 11, 0.92);
+
+  /* Text */
+  --text-primary: #f0ebe0;
+  --text-secondary: #a89880;
+  --text-dim: #5c5449;
+
+  /* Accents — unchanged */
+  --accent-red: #e63946;
+  --accent-gold: #f5e6c8;
+  --accent-blue: #4a90d9;
+
+  /* Borders */
+  --border: #2a2820;
+  --border-accent: #e63946;
+
+  /* Kanji decorative */
+  --kanji-ghost: rgba(240, 235, 224, 0.03);
+
+  /* Shadow */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   SMOOTH THEME TRANSITION
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* All color changes animate smoothly on theme toggle */
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none; /* CustomCursor takes over */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Show native cursor on mobile */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* ============================================
+   TYPOGRAPHY BASE
+   ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+::selection {
+  background-color: var(--accent-red);
+  color: #fff;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-red);
+  border-radius: 2px;
+}
+
+/* ============================================
+   LAYOUT UTILITIES
+   ============================================ */
+.container-site {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 6rem);
+}
+
+.section-wrapper {
+  padding: clamp(4rem, 10vh, 8rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================================
+   KANJI WATERMARK
+   ============================================ */
+.kanji-watermark {
+  position: absolute;
+  font-family: var(--font-noto-jp), serif;
+  font-weight: 900;
+  font-size: clamp(8rem, 20vw, 24rem);
+  color: var(--text-primary);
+  opacity: 0; /* Controlled by CSS var */
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -0.05em;
+  /* Day mode: dark text at very low opacity */
+  opacity: var(--kanji-opacity, 0.04);
+}
+:root.dark .kanji-watermark {
+  --kanji-opacity: 0.03; /* Slightly lower in dark mode */
+}
+
+/* ============================================
+   CHAPTER LABEL  e.g. "[ 01 ] ——— EXPERIENCE / 経験"
+   ============================================ */
+.chapter-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+}
+
+.chapter-label .chapter-number {
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+.chapter-label .chapter-line {
+  display: block;
+  height: 1px;
+  width: 2.5rem;
+  background: var(--accent-red);
+  opacity: 0.5;
+}
+
+/* ============================================
+   MANGA PANEL
+   ============================================ */
+.manga-panel {
+  border: 1.5px solid var(--border);
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.manga-panel:hover {
+  border-color: rgba(230, 57, 70, 0.4);
+}
+
+/* ============================================
+   INK STAMP
+   ============================================ */
+.ink-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--accent-red);
+  border-radius: 3px;
+  font-family: var(--font-noto-jp), serif;
+  font-size: 0.9rem;
+  color: var(--accent-red);
+  opacity: 0.75;
+  transform: rotate(-5deg);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   CURVY ARROW SVG
+   ============================================ */
+.curvy-arrow-path {
+  fill: none;
+  stroke: var(--accent-red);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0.45;
+}
+
+/* ============================================
+   FOCUS VISIBLE (Accessibility)
+   ============================================ */
+:focus-visible {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   DISABLE TRANSITIONS DURING THEME SWITCH
+   (Added/removed by ThemeToggle component)
+   ============================================ */
+.no-transition * {
+  transition: none !important;
+}
