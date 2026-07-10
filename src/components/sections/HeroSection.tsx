@@ -100,27 +100,6 @@ export function HeroSection() {
     const frontX = gsap.quickTo(frontEl, 'x', { duration: 0.4, ease: 'power3.out' });
     const frontY = gsap.quickTo(frontEl, 'y', { duration: 0.4, ease: 'power3.out' });
 
-    /* Head-turn: subtle rotateY on character based on mouse X — use set, not quickTo */
-    function applyRotateY(val: number) {
-      gsap.to(charEl, { rotateY: val, duration: 0.8, ease: 'power2.out', overwrite: 'auto' });
-    }
-
-    /* ── SCROLL REVEAL: section overflow:hidden clips character at bottom ── */
-    /* Character pushed down 25% initially — only body visible, face hidden */
-    gsap.set(charEl, { yPercent: 20 });
-
-    ScrollTrigger.create({
-      trigger: section,
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 1.5,
-      onUpdate: (self) => {
-        /* progress 0→1: character moves from +20% down to -15% up (face fully revealed) */
-        const offsetY = gsap.utils.interpolate(20, -15, self.progress);
-        gsap.set(charEl, { yPercent: offsetY });
-      },
-    });
-
     function onMouseMove(e: MouseEvent) {
       if (!section) return;
       const rect = section.getBoundingClientRect();
@@ -135,9 +114,6 @@ export function HeroSection() {
       charY(ny * 20); // mid — medium
       frontX(nx * -24);
       frontY(ny * -14); // near — opposite (creates depth)
-
-      /* Head-turn illusion: -8deg to +8deg */
-      applyRotateY(nx * 8);
     }
 
     function onMouseLeave() {
@@ -145,7 +121,6 @@ export function HeroSection() {
       gsap.to([charEl, backEl, frontEl], {
         x: 0,
         y: 0,
-        rotateY: 0,
         duration: 1.2,
         ease: 'elastic.out(1, 0.5)',
       });
