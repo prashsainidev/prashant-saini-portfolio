@@ -15,7 +15,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
-import { ChapterLabel, KanjiAccent } from '@/components/ui';
+import { ChapterLabel } from '@/components/ui';
 import { JpTooltip } from '@/components/ui/JpTooltip';
 import { experienceData } from '@/data/experience';
 import { IExperience } from '@/types';
@@ -611,6 +611,7 @@ export function ExperienceSection({ chapter }: { chapter: string }) {
           initial="hidden"
           animate={isHeaderInView ? 'visible' : 'hidden'}
           variants={stagger}
+          style={{ marginBottom: 'clamp(3rem, 6vh, 5rem)' }}
         >
           {/* Ghost word */}
           <motion.p
