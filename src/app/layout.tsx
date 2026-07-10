@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { Space_Grotesk, Noto_Sans_JP, Dancing_Script, JetBrains_Mono } from 'next/font/google';
+import { Space_Grotesk, Noto_Sans_JP, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { CustomCursor } from '@/components/ui';
 
@@ -18,13 +18,6 @@ const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
   weight: ['300', '400', '700', '900'],
   variable: '--font-noto-jp',
-  display: 'swap',
-});
-
-const dancingScript = Dancing_Script({
-  subsets: ['latin'],
-  weight: ['400', '600'],
-  variable: '--font-dancing',
   display: 'swap',
 });
 
@@ -76,12 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html
       lang="en"
       suppressHydrationWarning
-      className={[
-        spaceGrotesk.variable,
-        notoSansJP.variable,
-        dancingScript.variable,
-        jetbrainsMono.variable,
-      ].join(' ')}
+      className={[spaceGrotesk.variable, notoSansJP.variable, jetbrainsMono.variable].join(' ')}
     >
       <head>
         {/*
