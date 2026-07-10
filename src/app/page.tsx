@@ -14,6 +14,8 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { SkillsSection } from '@/components/sections/SkillsSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
+import { FreelanceSection } from '@/components/sections/FreelanceSection';
+import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { getActiveSections } from '@/data/sections';
 import { siteConfig } from '@/data/siteConfig';
 
@@ -35,7 +37,14 @@ export default function Home() {
         if (section.id === 'projects') {
           return <ProjectsSection key={section.id} chapter={section.number} />;
         }
-        // Future sections will be added here as we build them
+        if (section.id === 'freelance') {
+          return <FreelanceSection key={section.id} chapter={section.number} />;
+        }
+        // aiProjects goes here
+        if (section.id === 'experience') {
+          return <ExperienceSection key={section.id} chapter={section.number} />;
+        }
+        // openSource, blogs, etc. will go here
         return null;
       })}
     </main>
