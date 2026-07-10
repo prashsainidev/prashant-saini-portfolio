@@ -239,21 +239,6 @@ video {
 }
 
 /* ============================================
-   LAYOUT UTILITIES
-   ============================================ */
-.container-site {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 clamp(1.5rem, 5vw, 6rem);
-}
-
-.section-wrapper {
-  padding: clamp(4rem, 10vh, 8rem) 0;
-  position: relative;
-  overflow: hidden;
-}
-
-/* ============================================
    KANJI WATERMARK
    ============================================ */
 .kanji-watermark {
@@ -336,31 +321,10 @@ video {
 }
 
 /* ============================================
-   CURVY ARROW SVG
-   ============================================ */
-.curvy-arrow-path {
-  fill: none;
-  stroke: var(--accent-red);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  opacity: 0.45;
-}
-
-/* ============================================
    FOCUS VISIBLE (Accessibility)
    ============================================ */
 :focus-visible {
   outline: 2px solid var(--accent-red);
   outline-offset: 4px;
   border-radius: 2px;
-}
-
-/* ============================================
-   DISABLE TRANSITIONS DURING THEME SWITCH
-   (Added/removed by ThemeToggle component)
-   ============================================ */
-.no-transition * {
-  transition: none !important;
 }
