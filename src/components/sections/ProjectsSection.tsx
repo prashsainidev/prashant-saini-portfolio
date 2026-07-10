@@ -499,7 +499,7 @@ function ProjectCard({
                 {/* Blinking cursor */}
                 <motion.span
                   animate={{ opacity: [1, 0, 1] }}
-                  transition={{ duration: 1.1, repeat: Infinity, ease: 'steps(1)' }}
+                  transition={{ duration: 1.1, repeat: Infinity, ease: 'linear' }}
                   style={{
                     display: 'inline-block',
                     width: '6px',
