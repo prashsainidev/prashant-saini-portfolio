@@ -17,7 +17,7 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
-import { ChapterLabel, JpTooltip } from '@/components/ui';
+import { ChapterLabel } from '@/components/ui';
 import { skillsData } from '@/data/skills';
 import { ISkill } from '@/types';
 

@@ -8,12 +8,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import { ThemeToggle } from '@/components/ui';
 import { getActiveSections } from '@/data/sections';
 import { heroData } from '@/data/hero';
 import { useNavStore } from '@/lib/navStore';
-gsap.registerPlugin(ScrollTrigger);
 
 export function Navbar() {
   const navRef = useRef<HTMLElement>(null);

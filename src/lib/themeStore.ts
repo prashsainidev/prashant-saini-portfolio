@@ -41,13 +41,3 @@ function applyTheme(theme: Theme) {
     localStorage.setItem('portfolio-theme', theme);
   } catch {}
 }
-
-/** Read saved theme from localStorage (called on app mount) */
-export function getStoredTheme(): Theme {
-  try {
-    const saved = localStorage.getItem('portfolio-theme') as Theme | null;
-    return saved === 'night' ? 'night' : 'day';
-  } catch {
-    return 'day';
-  }
-}
