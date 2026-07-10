@@ -57,20 +57,10 @@ function Sparkle() {
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
       <path
         d="M16 1 L17.8 14.2 L31 16 L17.8 17.8 L16 31 L14.2 17.8 L1 16 L14.2 14.2 Z"
-        fill="rgba(255,255,255,0.85)"
+        fill="var(--svg-fill)"
       />
-      <path
-        d="M9 9 L13 13"
-        stroke="rgba(255,255,255,0.35)"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M23 9 L19 13"
-        stroke="rgba(255,255,255,0.35)"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
+      <path d="M9 9 L13 13" stroke="var(--svg-stroke)" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M23 9 L19 13" stroke="var(--svg-stroke)" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -80,13 +70,13 @@ function SweatDrop() {
     <svg width="22" height="32" viewBox="0 0 22 32" fill="none">
       <path
         d="M11 2 Q3 12 3 20 Q3 29 11 29 Q19 29 19 20 Q19 12 11 2Z"
-        fill="rgba(100,180,255,0.55)"
-        stroke="rgba(130,200,255,0.7)"
+        fill="var(--accent-blue-soft-fill)"
+        stroke="var(--accent-blue-soft-stroke)"
         strokeWidth="1"
       />
       <path
         d="M8 20 Q11 18 14 20"
-        stroke="rgba(255,255,255,0.45)"
+        stroke="var(--svg-stroke-strong)"
         strokeWidth="1.4"
         fill="none"
         strokeLinecap="round"
@@ -265,6 +255,7 @@ function Floater({
     const RADIUS = 135,
       STRENGTH = 52;
     function onMove(e: MouseEvent) {
+      if (!el) return;
       const r = el.getBoundingClientRect();
       const dx = e.clientX - (r.left + r.width / 2);
       const dy = e.clientY - (r.top + r.height / 2);
@@ -441,8 +432,9 @@ export function AboutSection({ chapter = '01' }: { chapter?: string }) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        padding: 'clamp(2.5rem, 5vh, 4.5rem) clamp(1.5rem, 5vw, 6rem)',
+        padding: 'clamp(4rem, 8vh, 8rem) clamp(1.5rem, 5vw, 6rem)',
         overflow: 'hidden',
+        background: 'var(--bg-secondary)',
       }}
     >
       {/* ── Warp canvas background ── */}
@@ -497,9 +489,9 @@ export function AboutSection({ chapter = '01' }: { chapter?: string }) {
             fontWeight: 900,
             lineHeight: 1,
             color: 'transparent',
-            WebkitTextStroke: '1px var(--border)',
+            WebkitTextStroke: '1.5px var(--text-dim)',
             letterSpacing: '-0.05em',
-            opacity: 0.18,
+            opacity: 0.25,
             userSelect: 'none',
             fontFamily: 'var(--font-space-grotesk)',
           }}
@@ -786,21 +778,6 @@ export function AboutSection({ chapter = '01' }: { chapter?: string }) {
           </div>
         </div>
       </div>
-
-      {/* ── Bottom section border ── */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={isInView ? { scaleX: 1 } : {}}
-        transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        style={{
-          height: '1px',
-          backgroundColor: 'var(--border)',
-          transformOrigin: 'left',
-          marginTop: 'clamp(2.5rem, 6vh, 5rem)',
-          position: 'relative',
-          zIndex: 2,
-        }}
-      />
     </section>
   );
 }

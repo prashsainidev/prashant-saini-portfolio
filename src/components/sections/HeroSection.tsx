@@ -122,6 +122,7 @@ export function HeroSection() {
     });
 
     function onMouseMove(e: MouseEvent) {
+      if (!section) return;
       const rect = section.getBoundingClientRect();
       /* Normalize to -0.5 → +0.5 */
       const nx = (e.clientX - rect.left) / rect.width - 0.5;
@@ -281,7 +282,7 @@ export function HeroSection() {
             height: '82vh',
             width: 'auto',
             display: 'block',
-            filter: 'drop-shadow(0 24px 80px rgba(0,0,0,0.22))',
+            filter: 'drop-shadow(var(--shadow-lg))',
           }}
         />
       </div>
@@ -366,7 +367,7 @@ export function HeroSection() {
             number="00"
             label="Portfolio"
             labelJP="作品集"
-            labelTranslation="My Work Collection"
+            labelTranslation="Selected Works"
           />
         </motion.div>
 
@@ -418,7 +419,11 @@ export function HeroSection() {
                 marginBottom: '0.5rem',
               }}
             />
-            <JpTooltip translation={`${heroData.firstName} ${heroData.lastName}`}>
+            <JpTooltip
+              translation={
+                heroData.nameKanjiTranslation || `${heroData.firstName} ${heroData.lastName}`
+              }
+            >
               <span
                 aria-hidden
                 style={{
@@ -543,9 +548,9 @@ export function HeroSection() {
               fontSize: '0.55rem',
               letterSpacing: '0.3em',
               color: 'var(--text-dim)',
-              opacity: 0.35,
+              opacity: 'var(--opacity-decorative)',
               userSelect: 'none',
-              borderLeft: '1px dashed rgba(255,255,255,0.15)',
+              borderLeft: '1px dashed var(--border-subtle)',
               paddingLeft: '1px',
               display: 'block',
             }}
@@ -603,7 +608,7 @@ export function HeroSection() {
                   <JpTooltip translation={heroData.location} hint="Location">
                     <span
                       style={{
-                        borderBottom: '1px dashed rgba(255,255,255,0.15)',
+                        borderBottom: '1px dashed var(--border-subtle)',
                         paddingBottom: '1px',
                         fontFamily: 'var(--font-noto-jp)',
                       }}
