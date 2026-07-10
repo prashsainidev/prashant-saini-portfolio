@@ -12,6 +12,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { ThemeToggle } from '@/components/ui';
 import { getActiveSections } from '@/data/sections';
 import { heroData } from '@/data/hero';
+import { useNavStore } from '@/lib/navStore';
 gsap.registerPlugin(ScrollTrigger);
 
 export function Navbar() {
@@ -19,6 +20,19 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
+  const isForceHidden = useNavStore((state) => state.isForceHidden);
+
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    if (isForceHidden) {
+      gsap.to(nav, { yPercent: -100, duration: 0.4, ease: 'power2.inOut' });
+    } else {
+      if (window.scrollY <= 100) {
+        gsap.to(nav, { yPercent: 0, duration: 0.4, ease: 'power2.inOut' });
+      }
+    }
+  }, [isForceHidden]);
 
   useEffect(() => {
     const nav = navRef.current;
@@ -27,6 +41,13 @@ export function Navbar() {
     const handleScroll = () => {
       const currentY = window.scrollY;
       setScrolled(currentY > 60);
+
+      // Force hide if global state says so (e.g. inside Projects gallery)
+      if (useNavStore.getState().isForceHidden) {
+        gsap.to(nav, { yPercent: -100, duration: 0.4, ease: 'power2.inOut' });
+        lastScrollY.current = currentY;
+        return;
+      }
 
       // Hide on scroll down, show on scroll up
       if (currentY > lastScrollY.current && currentY > 100) {

@@ -47,7 +47,7 @@ export function ChapterLabel({
                 fontSize: '0.65rem',
                 letterSpacing: '0.1em',
                 color: 'var(--text-dim)',
-                borderBottom: '1px dashed rgba(255,255,255,0.15)',
+                borderBottom: '1px dashed var(--border-subtle)',
                 paddingBottom: '1px',
               }}
             >

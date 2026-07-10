@@ -75,8 +75,8 @@ export function JpTooltip({ translation, children, hint }: JpTooltipProps) {
     });
 
     // Post-calculation: clamp left so tooltip stays in viewport
-    // We estimate tooltip width as 160px max
-    const tooltipHalfW = 100;
+    // We estimate tooltip width as 500px max for extremely long strings (e.g. Location)
+    const tooltipHalfW = 250;
     const clampedLeft = Math.max(
       EDGE_PADDING + tooltipHalfW,
       Math.min(left, vw - EDGE_PADDING - tooltipHalfW)
@@ -108,8 +108,8 @@ export function JpTooltip({ translation, children, hint }: JpTooltipProps) {
           {/* Glassmorphism card */}
           <div
             style={{
-              background: 'rgba(8, 8, 8, 0.92)',
-              border: '1px solid rgba(255,255,255,0.1)',
+              background: 'var(--tooltip-bg)',
+              border: '1px solid var(--tooltip-border)',
               borderTop: '1.5px solid var(--accent-red)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
@@ -117,7 +117,7 @@ export function JpTooltip({ translation, children, hint }: JpTooltipProps) {
               display: 'flex',
               flexDirection: 'column',
               gap: '2px',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+              boxShadow: 'var(--shadow-md)',
             }}
           >
             <span
@@ -136,7 +136,7 @@ export function JpTooltip({ translation, children, hint }: JpTooltipProps) {
                 fontSize: '0.72rem',
                 fontWeight: 600,
                 letterSpacing: '0.04em',
-                color: '#ffffff',
+                color: 'var(--tooltip-text)',
               }}
             >
               {translation}
@@ -145,7 +145,7 @@ export function JpTooltip({ translation, children, hint }: JpTooltipProps) {
               <span
                 style={{
                   fontSize: '0.45rem',
-                  color: 'rgba(255,255,255,0.3)',
+                  color: 'var(--tooltip-text-dim)',
                   letterSpacing: '0.08em',
                   fontStyle: 'italic',
                 }}

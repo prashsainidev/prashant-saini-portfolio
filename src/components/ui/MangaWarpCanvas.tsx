@@ -56,6 +56,7 @@ export function MangaWarpCanvas() {
 
     /* ── Resize ── */
     function resize() {
+      if (!canvas || !ctx) return;
       const parent = canvas.parentElement;
       if (!parent) return;
       const r = parent.getBoundingClientRect();
@@ -65,6 +66,7 @@ export function MangaWarpCanvas() {
 
     /* ── Draw loop ── */
     function draw() {
+      if (!canvas || !ctx) return;
       const w = canvas.width;
       const h = canvas.height;
       const t = (performance.now() - startTime) / 1000;
@@ -147,6 +149,7 @@ export function MangaWarpCanvas() {
 
     /* ── Event handlers ── */
     function onMouseMove(e: MouseEvent) {
+      if (!canvas) return;
       const rect = canvas.getBoundingClientRect();
       targetX = e.clientX - rect.left;
       targetY = e.clientY - rect.top;

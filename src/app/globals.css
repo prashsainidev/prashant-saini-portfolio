@@ -25,12 +25,38 @@
   --border-accent: #e63946;
 
   /* Kanji decorative */
-  --kanji-ghost: rgba(26, 21, 18, 0.04);
+  --kanji-ghost: rgba(26, 21, 18, 0.02);
 
   /* Shadow */
   --shadow-sm: 0 2px 8px rgba(26, 21, 18, 0.08);
   --shadow-md: 0 8px 24px rgba(26, 21, 18, 0.12);
-  --shadow-lg: 0 20px 60px rgba(26, 21, 18, 0.16);
+  --shadow-lg: 0 20px 60px rgba(26, 21, 18, 0.26); /* Bumped up from 0.16 for better depth */
+
+  /* Theme-aware additions */
+  --border-subtle: rgba(26, 21, 18, 0.12);
+  --bg-ghost: rgba(26, 21, 18, 0.03);
+  --text-on-accent: #f5f0e8; /* Accent colors are identical across themes */
+  --glow-subtle: rgba(26, 21, 18, 0.05);
+  --svg-fill: rgba(26, 21, 18, 0.85);
+  --svg-stroke: rgba(26, 21, 18, 0.35);
+  --svg-stroke-strong: rgba(26, 21, 18, 0.45);
+  --opacity-decorative: 0.65; /* Higher opacity in light mode for contrast */
+
+  /* Decorative Blue Accent (Sweat drop) */
+  --accent-blue-soft-fill: rgba(60, 130, 210, 0.65); /* Darker blue for light background */
+  --accent-blue-soft-stroke: rgba(40, 110, 190, 0.8);
+
+  /* Skill Glows */
+  --glow-proficient: rgba(26, 21, 18, 0.15); /* Distinct dark aura for light mode */
+  --glow-learning: rgba(26, 21, 18, 0.08); /* Fainter dark aura for learning */
+  --expert-glow-color: rgba(230, 57, 70, 0.28); /* Expert pulse glow — light mode */
+  --expert-glow-strong: rgba(230, 57, 70, 0.45);
+
+  /* Tooltip */
+  --tooltip-bg: #1a1512;
+  --tooltip-border: rgba(245, 240, 232, 0.1);
+  --tooltip-text: #f5f0e8;
+  --tooltip-text-dim: rgba(245, 240, 232, 0.6);
 }
 
 /* ============================================
@@ -64,6 +90,32 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  /* Theme-aware additions */
+  --border-subtle: rgba(255, 255, 255, 0.15);
+  --bg-ghost: rgba(240, 235, 224, 0.03);
+  --text-on-accent: #f5f0e8; /* Accent colors are identical across themes */
+  --glow-subtle: rgba(255, 255, 255, 0.12);
+  --svg-fill: rgba(255, 255, 255, 0.85);
+  --svg-stroke: rgba(255, 255, 255, 0.35);
+  --svg-stroke-strong: rgba(255, 255, 255, 0.45);
+  --opacity-decorative: 0.35; /* Keeps dark mode faded look */
+
+  /* Decorative Blue Accent (Sweat drop) */
+  --accent-blue-soft-fill: rgba(100, 180, 255, 0.55);
+  --accent-blue-soft-stroke: rgba(130, 200, 255, 0.7);
+
+  /* Skill Glows */
+  --glow-proficient: rgba(255, 255, 255, 0.12);
+  --glow-learning: rgba(120, 120, 120, 0.1);
+  --expert-glow-color: rgba(230, 57, 70, 0.25); /* Expert pulse glow — dark mode */
+  --expert-glow-strong: rgba(230, 57, 70, 0.45);
+
+  /* Tooltip */
+  --tooltip-bg: rgba(8, 8, 8, 0.92);
+  --tooltip-border: rgba(255, 255, 255, 0.1);
+  --tooltip-text: #ffffff;
+  --tooltip-text-dim: rgba(255, 255, 255, 0.3);
 }
 
 /* ============================================
@@ -81,6 +133,27 @@
     color 0.4s ease,
     border-color 0.4s ease,
     box-shadow 0.4s ease;
+}
+
+/* ============================================
+   SKILL CARD — EXPERT PULSE ANIMATION
+   ============================================ */
+@keyframes expertPulse {
+  0% {
+    box-shadow:
+      0 0 0px 0px var(--expert-glow-color),
+      0 0 10px 2px var(--expert-glow-color);
+  }
+  50% {
+    box-shadow:
+      0 0 14px 4px var(--expert-glow-strong),
+      0 0 20px 6px var(--expert-glow-color);
+  }
+  100% {
+    box-shadow:
+      0 0 0px 0px var(--expert-glow-color),
+      0 0 10px 2px var(--expert-glow-color);
+  }
 }
 
 /* ============================================

@@ -8,6 +8,7 @@
 import { useEffect } from 'react';
 import { useThemeStore } from '@/lib/themeStore';
 import { cn } from '@/lib/utils';
+import { Sun, Moon } from 'lucide-react';
 
 interface ThemeToggleProps {
   className?: string;
@@ -74,8 +75,8 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-dim)';
       }}
     >
-      <span style={{ fontSize: '1rem' }} aria-hidden>
-        {isNight ? '🌸' : '🌙'}
+      <span style={{ display: 'flex', alignItems: 'center', opacity: 0.8 }} aria-hidden>
+        {isNight ? <Sun size={14} strokeWidth={2.5} /> : <Moon size={14} strokeWidth={2.5} />}
       </span>
       <span>{isNight ? '昼' : '夜'}</span>
     </button>
