@@ -650,7 +650,6 @@ export function AboutSection({ chapter = '01' }: { chapter?: string }) {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-cursor-hover
                     style={{
                       fontSize: '0.56rem',
                       letterSpacing: '0.22em',
@@ -686,7 +685,7 @@ export function AboutSection({ chapter = '01' }: { chapter?: string }) {
                 href={heroData.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                data-cursor-hover
+                data-magnetic
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',

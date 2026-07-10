@@ -482,7 +482,6 @@ export function HeroSection() {
               href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              data-cursor-hover
               style={{
                 fontSize: '0.6rem',
                 letterSpacing: '0.2em',

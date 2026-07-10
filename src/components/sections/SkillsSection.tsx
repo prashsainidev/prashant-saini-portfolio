@@ -276,7 +276,6 @@ function CategoryTab({
   return (
     <button
       onClick={onClick}
-      data-cursor-hover
       style={{
         display: 'flex',
         flexDirection: 'column',

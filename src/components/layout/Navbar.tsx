@@ -95,7 +95,6 @@ export function Navbar() {
           e.preventDefault();
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
-        data-cursor-hover
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -139,7 +138,6 @@ export function Navbar() {
           <button
             key={link.id}
             onClick={() => handleNavClick(link.href)}
-            data-cursor-hover
             style={{
               background: 'none',
               border: 'none',
@@ -191,7 +189,7 @@ export function Navbar() {
           href={heroData.resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          data-cursor-hover
+          data-magnetic
           style={{
             fontSize: '0.65rem',
             letterSpacing: '0.2em',

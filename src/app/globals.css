@@ -328,3 +328,22 @@ video {
   outline-offset: 4px;
   border-radius: 2px;
 }
+
+@media (pointer: fine) {
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [contenteditable] {
+    cursor: auto;
+  }
+  * {
+    cursor: none;
+  }
+  input,
+  textarea,
+  [contenteditable] {
+    cursor: text;
+  }
+}
