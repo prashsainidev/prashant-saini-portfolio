@@ -14,7 +14,7 @@ Before doing ANYTHING in a new session, read these files IN ORDER:
 ## GOLDEN RULES
 - NEVER make decisions independently. Always present options to Prashant.
 - NEVER hardcode content in UI components. ALL content comes from `src/data/`.
-- NEVER use pure #000000 as background. Use warm dark tones (see DESIGN_SYSTEM.md).
+- ALWAYS use pure #000000 as background. (User specifically requested pitch black).
 - NEVER install a library without explaining its purpose and trade-offs first.
 - NEVER create boring, generic, minimum-viable-product designs. Everything is premium.
 - ALWAYS update `docs/PROGRESS.md` after completing work.
@@ -32,8 +32,8 @@ Before doing ANYTHING in a new session, read these files IN ORDER:
 
 ## DESIGN DIRECTION (DO NOT DEVIATE)
 - Aesthetic: Japanese Manga / Editorial / Cinematic Scroll-Telling
-- Background: Warm dark charcoal #0D0D0B (NOT pure black)
-- Primary Accent: Vermillion Red #E63946 (Japanese ink stamp)
+- Background: Pure Pitch Black #000000
+- Primary Accent: Phosphor Mint #00FF9F / Vermillion Red #E63946
 - Secondary Accent: Aged Gold #F5E6C8 (parchment)
 - Typography: Space Grotesk (English) + Noto Sans JP (Kanji)
 - Signature: GSAP-drawn curvy SVG arrows connecting sections

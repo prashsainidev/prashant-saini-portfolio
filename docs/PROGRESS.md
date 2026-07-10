@@ -71,17 +71,22 @@ Reference sites: slamdunk-five.vercel.app, bruno-simon.com, aristidebenoist.com
 - [x] **AboutSection** `[ 01 ]` — MangaWarpCanvas bg, AbstractWireframe 3D, trait cards, JpTooltip
 - [x] **SkillsSection** `[ 02 ]` — GSAP physics mouse repulsion, category tabs, AnimatePresence, JpTooltip
 
+### Phase 3 — Act II Built
+- [x] **ProjectsSection** `[ 03 ]` — Horizontal cinematic scroll, GSAP velocity skew, dynamic glow, magnetic DRAG cursor, typography-focused UI
+- [x] **FreelanceSection** `[ 04 ]` — ✨ NEW: Dedicated client work showcase, auto-sorting dates, responsive manga grid
+- [x] **ExperienceSection** `[ 05 ]` — Manga Chapter Layout, pulsing Hanko Seal, bug fixes for overlapping watermarks, proper alternating background sequence
+
 ---
 
 ## 🔄 IN PROGRESS
-- [ ] Updating docs and AGENTS.md (current session)
+- [ ] Updating docs and `.agents/AGENTS.md` before git push
 
 ---
 
 ## 📋 PENDING SECTIONS (IN ORDER — see docs/SECTION_FLOW.md for full spec)
 
 ### Act II — 証明 (The Evidence)
-- [ ] **ProjectsSection** `[ 03 ]` — Horizontal/vertical case study cards, cinematic hover tilt
+- [x] **ProjectsSection** `[ 03 ]` — Complete
 - [ ] **AIProjectsSection** `[ 04 ]` — AI-specific projects (display: false by default)
 - [ ] **WorkSection** `[ 05 ]` — Vertical GSAP timeline, career journey
 - [ ] **OpenSourceSection** `[ 06 ]` — Community contributions (display: false by default)
@@ -123,6 +128,8 @@ Reference sites: slamdunk-five.vercel.app, bruno-simon.com, aristidebenoist.com
 | 2026-07-09 | JpTooltip uses React Portal | Escapes overflow:hidden, anchors to element center, viewport-safe |
 | 2026-07-09 | No JpTooltip in Navbar | English label already visible — tooltip would be redundant |
 | 2026-07-09 | personal.ts → split into hero.ts + about.ts | One data file per section (no cross-section imports) |
+| 2026-07-09 | ProjectsSection is pure Typography | Hover images rejected to maintain clean, text-heavy editorial look |
+| 2026-07-09 | ProjectsSection Custom DRAG Cursor | Added Cuberto-style magnetic DRAG cursor for horizontal scroll |
 
 ---
 

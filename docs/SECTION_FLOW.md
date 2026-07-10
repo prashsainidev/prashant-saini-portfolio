@@ -34,9 +34,10 @@ Every section has:
 | # | ID | Label | JP | Translation | configKey |
 |---|---|---|---|---|---|
 | 03 | `projects` | Projects | 作品 | Projects / Works | `projects` |
-| 04 | `aiProjects` | AI Projects | 人工知能 | AI & Automations | `aiProjects` |
-| 05 | `work` | Experience | 経験 | Work Experience | `work` |
-| 06 | `openSource` | Open Source | 共有 | Community Code | `openSource` |
+| 04 | `freelance` | Freelance | 委託 | Client Work | `freelance` |
+| 05 | `aiProjects` | AI Projects | 人工知能 | AI & Automations | `aiProjects` |
+| 06 | `experience` | Experience | 経験 | Work Experience | `experience` |
+| 07 | `openSource` | Open Source | 共有 | Community Code | `openSource` |
 
 ---
 
@@ -45,10 +46,10 @@ Every section has:
 
 | # | ID | Label | JP | Translation | configKey |
 |---|---|---|---|---|---|
-| 07 | `blogs` | Articles | 記事 | Writings / Blogs | `blogs` |
-| 08 | `talks` | Talks | 登壇 | Speaking / Events | `talks` |
-| 09 | `podcast` | Podcast | 音声 | Audio / Podcasts | `podcast` |
-| 10 | `twitter` | Social | 発信 | Twitter / X Feed | `twitter` |
+| 08 | `blogs` | Articles | 記事 | Writings / Blogs | `blogs` |
+| 09 | `talks` | Talks | 登壇 | Speaking / Events | `talks` |
+| 10 | `podcast` | Podcast | 音声 | Audio / Podcasts | `podcast` |
+| 11 | `twitter` | Social | 発信 | Twitter / X Feed | `twitter` |
 
 ---
 
@@ -57,10 +58,10 @@ Every section has:
 
 | # | ID | Label | JP | Translation | configKey |
 |---|---|---|---|---|---|
-| 11 | `education` | Education | 学歴 | Academic History | `education` |
-| 12 | `certifications` | Certifications | 資格 | Certifications | `certifications` |
-| 13 | `volunteer` | Community | 奉仕 | Community Service | `volunteer` |
-| 14 | `testimonials` | Testimonials | 推薦 | Endorsements | `testimonials` |
+| 12 | `education` | Education | 学歴 | Academic History | `education` |
+| 13 | `certifications` | Certifications | 資格 | Certifications | `certifications` |
+| 14 | `volunteer` | Community | 奉仕 | Community Service | `volunteer` |
+| 15 | `testimonials` | Testimonials | 推薦 | Endorsements | `testimonials` |
 
 ---
 
@@ -69,15 +70,15 @@ Every section has:
 
 | # | ID | Label | JP | Translation | configKey |
 |---|---|---|---|---|---|
-| 15 | `newsletter` | Newsletter | 購読 | Stay Updated | `newsletter` |
-| 16 | `contact` | Contact | 連絡 | Get In Touch | `contact` |
+| 16 | `newsletter` | Newsletter | 購読 | Stay Updated | `newsletter` |
+| 17 | `contact` | Contact | 連絡 | Get In Touch | `contact` |
 
 ---
 
 ## 📊 Full Count
 - Hero (00) = 1
-- Navigable sections (01–16) = 16
-- **Total = 17 sections** (matches the 17 section files in old portfolio, excluding BlogsClient which is a helper)
+- Navigable sections (01–17) = 17
+- **Total = 18 sections** (matches the 17 section files in old portfolio + new freelance section)
 
 ---
 

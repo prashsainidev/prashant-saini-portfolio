@@ -1,0 +1,142 @@
+﻿
+src\components\sections\AboutSection.tsx:60:        fill="rgba(255,255,255,0.85)"
+src\components\sections\AboutSection.tsx:64:        stroke="rgba(255,255,255,0.35)"
+src\components\sections\AboutSection.tsx:70:        stroke="rgba(255,255,255,0.35)"
+src\components\sections\AboutSection.tsx:83:        fill="rgba(100,180,255,0.55)"
+src\components\sections\AboutSection.tsx:84:        stroke="rgba(130,200,255,0.7)"
+src\components\sections\AboutSection.tsx:89:        stroke="rgba(255,255,255,0.45)"
+src\components\sections\ExperienceSection.tsx:105:          boxShadow: '0 0 18px rgba(230,57,70,0.4), inset 0 0 12px 
+rgba(230,57,70,0.08)',
+src\components\sections\ExperienceSection.tsx:115:          border: '1px solid rgba(230,57,70,0.35)',
+src\components\sections\ExperienceSection.tsx:188:          background: 'rgba(230, 57, 70, 0.06)',
+src\components\sections\ExperienceSection.tsx:190:          borderTop: '1px solid rgba(230, 57, 70, 0.2)',
+src\components\sections\ExperienceSection.tsx:191:          borderBottom: '1px solid rgba(230, 57, 70, 0.2)',
+src\components\sections\ExperienceSection.tsx:212:        <span style={{ color: 'rgba(230,57,70,0.3)', fontSize: 
+'0.5rem' }}>◆</span>
+src\components\sections\ExperienceSection.tsx:262:            background: 'linear-gradient(to bottom, 
+rgba(230,57,70,0.5), transparent)',
+src\components\sections\ExperienceSection.tsx:316:                background: 'rgba(230,57,70,0.3)',
+src\components\sections\ExperienceSection.tsx:481:              background: 'rgba(240,235,224,0.03)',
+src\components\sections\ExperienceSection.tsx:674:          0%, 100% { box-shadow: 0 0 18px rgba(230,57,70,0.4), inset 
+0 0 12px rgba(230,57,70,0.08); }
+src\components\sections\ExperienceSection.tsx:675:          50% { box-shadow: 0 0 28px rgba(230,57,70,0.7), inset 0 0 
+18px rgba(230,57,70,0.15); }
+src\components\sections\HeroSection.tsx:65:      stroke="var(--accent-gold, #C9A96E)"
+src\components\sections\HeroSection.tsx:285:            filter: 'drop-shadow(0 24px 80px rgba(0,0,0,0.22))',
+src\components\sections\HeroSection.tsx:433:                  borderBottom: '1px dashed rgba(200,40,40,0.3)',
+src\components\sections\HeroSection.tsx:549:              borderLeft: '1px dashed rgba(255,255,255,0.15)',
+src\components\sections\HeroSection.tsx:607:                        borderBottom: '1px dashed rgba(255,255,255,0.15)',
+src\components\sections\ProjectsSection.tsx:35:    border: 'rgba(0, 255, 159, 0.6)',
+src\components\sections\ProjectsSection.tsx:36:    shadow: '0 0 32px rgba(0, 255, 159, 0.22), 0 0 80px rgba(0, 255, 
+159, 0.08)',
+src\components\sections\ProjectsSection.tsx:39:    border: 'rgba(230, 57, 70, 0.75)',
+src\components\sections\ProjectsSection.tsx:40:    shadow: '0 0 32px rgba(230, 57, 70, 0.28), 0 0 80px rgba(230, 57, 
+70, 0.1)',
+src\components\sections\ProjectsSection.tsx:43:    border: 'rgba(74, 144, 217, 0.65)',
+src\components\sections\ProjectsSection.tsx:44:    shadow: '0 0 32px rgba(74, 144, 217, 0.22), 0 0 80px rgba(74, 144, 
+217, 0.08)',
+src\components\sections\ProjectsSection.tsx:47:    border: 'rgba(245, 200, 130, 0.6)',
+src\components\sections\ProjectsSection.tsx:48:    shadow: '0 0 32px rgba(245, 200, 130, 0.22), 0 0 80px rgba(245, 
+200, 130, 0.08)',
+src\components\sections\ProjectsSection.tsx:51:    border: 'rgba(100, 200, 255, 0.6)',
+src\components\sections\ProjectsSection.tsx:52:    shadow: '0 0 32px rgba(100, 200, 255, 0.22), 0 0 80px rgba(100, 
+200, 255, 0.08)',
+src\components\sections\ProjectsSection.tsx:55:    border: 'rgba(180, 100, 255, 0.6)',
+src\components\sections\ProjectsSection.tsx:56:    shadow: '0 0 32px rgba(180, 100, 255, 0.22), 0 0 80px rgba(180, 
+100, 255, 0.08)',
+src\components\sections\ProjectsSection.tsx:59:    border: 'rgba(255, 100, 100, 0.6)',
+src\components\sections\ProjectsSection.tsx:60:    shadow: '0 0 32px rgba(255, 100, 100, 0.22), 0 0 80px rgba(255, 
+100, 100, 0.08)',
+src\components\sections\ProjectsSection.tsx:63:    border: 'rgba(255, 50, 50, 0.65)',
+src\components\sections\ProjectsSection.tsx:64:    shadow: '0 0 32px rgba(255, 50, 50, 0.25), 0 0 80px rgba(255, 50, 
+50, 0.1)',
+src\components\sections\ProjectsSection.tsx:69:  border: 'rgba(230, 57, 70, 0.45)',
+src\components\sections\ProjectsSection.tsx:70:  shadow: '0 0 32px rgba(230, 57, 70, 0.18)',
+src\components\sections\ProjectsSection.tsx:174:            : 'linear-gradient(to bottom, rgba(230,57,70,0.35), 
+rgba(230,57,70,0.08))',
+src\components\sections\ProjectsSection.tsx:194:            : 'radial-gradient(circle at 35% 35%, 
+rgba(255,180,180,0.7), rgba(230,57,70,0.9))',
+src\components\sections\ProjectsSection.tsx:195:          border: '1px solid rgba(255,255,255,0.18)',
+src\components\sections\ProjectsSection.tsx:197:            ? `0 0 10px ${glow.border}, 0 2px 4px rgba(0,0,0,0.5)`
+src\components\sections\ProjectsSection.tsx:198:            : '0 0 4px rgba(230,57,70,0.3), 0 1px 3px rgba(0,0,0,0.4)',
+src\components\sections\ProjectsSection.tsx:215:          borderColor: isHovered ? glow.border : 
+'rgba(255,255,255,0.07)',
+src\components\sections\ProjectsSection.tsx:216:          boxShadow: isHovered ? glow.shadow : '0 6px 28px 
+rgba(0,0,0,0.55)',
+src\components\sections\ProjectsSection.tsx:230:            : '1px solid rgba(255,255,255,0.06)',
+src\components\sections\ProjectsSection.tsx:309:                background: 'rgba(230,57,70,0.06)',
+src\components\sections\ProjectsSection.tsx:387:                ? glow.border.replace(')', ', 0.25)').replace('rgba(', 
+'rgba(').replace('0.6)', '0.25)').replace('0.65)', '0.25)').replace('0.75)', '0.25)')
+src\components\sections\ProjectsSection.tsx:388:                : 'rgba(255,255,255,0.07)',
+src\components\sections\ProjectsSection.tsx:396:              background: 'rgba(0,0,0,0.5)',
+src\components\sections\ProjectsSection.tsx:397:              border: '1px solid rgba(255,255,255,0.07)',
+src\components\sections\ProjectsSection.tsx:411:              borderBottom: '1px solid rgba(255,255,255,0.05)',
+src\components\sections\ProjectsSection.tsx:412:              background: 'rgba(255,255,255,0.03)',
+src\components\sections\ProjectsSection.tsx:416:              <span style={{ width: '7px', height: '7px', 
+borderRadius: '50%', background: '#FF5F57', display: 'inline-block', flexShrink: 0 }} />
+src\components\sections\ProjectsSection.tsx:417:              <span style={{ width: '7px', height: '7px', 
+borderRadius: '50%', background: '#FEBC2E', display: 'inline-block', flexShrink: 0 }} />
+src\components\sections\ProjectsSection.tsx:418:              <span style={{ width: '7px', height: '7px', 
+borderRadius: '50%', background: '#28C840', display: 'inline-block', flexShrink: 0 }} />
+src\components\sections\ProjectsSection.tsx:439:                <span style={{ color: 'rgba(255,255,255,0.25)' 
+}}>$</span>
+src\components\sections\ProjectsSection.tsx:461:                <span style={{ color: 'rgba(255,255,255,0.25)', 
+flexShrink: 0 }}>→</span>
+src\components\sections\ProjectsSection.tsx:468:                <span style={{ color: 'rgba(255,255,255,0.25)', 
+flexShrink: 0 }}>→</span>
+src\components\sections\ProjectsSection.tsx:475:                <span style={{ color: 'rgba(255,255,255,0.25)', 
+flexShrink: 0 }}>→</span>
+src\components\sections\ProjectsSection.tsx:482:                <span style={{ color: 'rgba(255,255,255,0.25)', 
+flexShrink: 0 }}>→</span>
+src\components\sections\ProjectsSection.tsx:496:                      background: project.links.live ? '#00FF9F' : 
+'rgba(255,255,255,0.25)',
+src\components\sections\ProjectsSection.tsx:501:                    color: project.links.live ? '#00FF9F' : 
+'var(--text-dim)',
+src\components\sections\ProjectsSection.tsx:669:          background: 'linear-gradient(to bottom, 
+rgba(230,57,70,0.25), rgba(230,57,70,0.05))',
+src\components\sections\ProjectsSection.tsx:684:          background: 'radial-gradient(circle at 35% 35%, 
+rgba(255,180,180,0.5), rgba(230,57,70,0.6))',
+src\components\sections\ProjectsSection.tsx:685:          border: '1px solid rgba(255,255,255,0.12)',
+src\components\sections\ProjectsSection.tsx:686:          boxShadow: '0 0 4px rgba(230,57,70,0.25)',
+src\components\sections\ProjectsSection.tsx:699:            ? '1px solid rgba(230,57,70,0.5)'
+src\components\sections\ProjectsSection.tsx:700:            : '1px dashed rgba(230,57,70,0.18)',
+src\components\sections\ProjectsSection.tsx:778:            background: 'rgba(230,57,70,0.3)',
+src\components\sections\ProjectsSection.tsx:796:            color: isHovered ? '#000' : 'var(--accent-red)',
+src\components\sections\ProjectsSection.tsx:1132:              background: 'linear-gradient(to bottom, transparent, 
+rgba(230,57,70,0.7), transparent)',
+src\components\sections\ProjectsSection.tsx:1186:              background: 'rgba(230,57,70,0.38)',
+src\components\sections\ProjectsSection.tsx:1233:          <div style={{ flex: 1, height: '1.5px', background: 
+'rgba(230,57,70,0.12)', borderRadius: '1px', overflow: 'hidden' }}>
+src\components\sections\SkillsSection.tsx:24:  expert: { label: 'EXPERT', color: 'var(--accent-red)', glow: 
+'rgba(200,40,40,0.35)' },
+src\components\sections\SkillsSection.tsx:25:  proficient: { label: 'PROFICIENT', color: 'var(--text-primary)', glow: 
+'rgba(255,255,255,0.12)' },
+src\components\sections\SkillsSection.tsx:26:  learning: { label: 'LEARNING', color: 'var(--text-dim)', glow: 
+'rgba(120,120,120,0.1)' },
+src\components\sections\SkillsSection.tsx:187:          ? 'radial-gradient(ellipse at 0% 0%, rgba(200,40,40,0.12) 0%, 
+transparent 70%)'
+src\components\ui\AbstractWireframe.tsx:7: *  - Fixed `new Color("rgba(...)")` → `new Color("#hex")` (Three.js doesn't 
+accept rgba strings)
+src\components\ui\AbstractWireframe.tsx:24:const COLOR_BASE_DARK = new Color('#E63946').multiplyScalar(0.4); // dim red
+src\components\ui\AbstractWireframe.tsx:25:const COLOR_HOVER_DARK = new Color('#F0EBE0'); // bright white (dark mode)
+src\components\ui\AbstractWireframe.tsx:26:const COLOR_BASE_LIGHT = new Color('#E63946').multiplyScalar(0.5); // 
+slightly brighter red on light bg
+src\components\ui\AbstractWireframe.tsx:27:const COLOR_HOVER_LIGHT = new Color('#1A1512'); // near-black on hover in 
+light mode
+src\components\ui\ChapterLabel.tsx:50:                borderBottom: '1px dashed rgba(255,255,255,0.15)',
+src\components\ui\CustomCursor.tsx:125:        ctx.fillStyle = `rgba(230, 57, 70, ${dot.alpha})`;
+src\components\ui\JpTooltip.tsx:111:              background: 'rgba(8, 8, 8, 0.92)',
+src\components\ui\JpTooltip.tsx:112:              border: '1px solid rgba(255,255,255,0.1)',
+src\components\ui\JpTooltip.tsx:120:              boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+src\components\ui\JpTooltip.tsx:139:                color: '#ffffff',
+src\components\ui\JpTooltip.tsx:148:                  color: 'rgba(255,255,255,0.3)',
+src\components\ui\MangaWarpCanvas.tsx:116:          ? `rgba(${lineR},${lineG},${lineB},0.07)`
+src\components\ui\MangaWarpCanvas.tsx:117:          : `rgba(${lineR},${lineG},${lineB},0.028)`;
+src\components\ui\MangaWarpCanvas.tsx:133:        redGrad.addColorStop(0, 'rgba(220, 38, 38, 0.09)');
+src\components\ui\MangaWarpCanvas.tsx:134:        redGrad.addColorStop(0.4, 'rgba(220, 38, 38, 0.04)');
+src\components\ui\MangaWarpCanvas.tsx:135:        redGrad.addColorStop(1, 'rgba(220, 38, 38, 0)');
+src\components\ui\MangaWarpCanvas.tsx:141:        whiteGrad.addColorStop(0, 
+`rgba(${innerR},${innerR},${innerR},0.06)`);
+src\components\ui\MangaWarpCanvas.tsx:142:        whiteGrad.addColorStop(1, `rgba(${innerR},${innerR},${innerR},0)`);
+
+
