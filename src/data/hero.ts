@@ -3,14 +3,15 @@ import { IHero } from '@/types';
 export const heroData: IHero = {
   firstName: 'Prashant',
   lastName: 'Saini',
-  nameKanji: '誠一', // Phonetic representation
+  nameKanji: '誠一', // Thematic Japanese Name
+  nameKanjiTranslation: 'The Sincere One', // Meaning of Seiichi
   subtitle:
     'I build clean, practical web experiences with JavaScript, React.js, Node.js, and modern web tools.',
   role: 'Full-Stack Developer',
   location: 'Aligarh, India',
   locationJP: 'アリーガル、インド',
   availability: 'Available for work',
-  resumeUrl: 'https://drive.google.com/drive/folders/1pNEG5U8ipkXiXczyFJw1nK-1H0mC90fo?usp=sharing',
+  resumeUrl: 'https://drive.google.com/file/d/13evi9mKUFX-Kew73ahhSEHth_jGa1uO_/view?usp=sharing',
   socials: [
     {
       name: 'github',

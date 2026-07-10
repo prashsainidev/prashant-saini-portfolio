@@ -18,8 +18,10 @@ export interface IHero {
   firstName: string;
   lastName: string;
   nameKanji: string;
+  nameKanjiTranslation?: string;
   subtitle: string;
   role: string;
+  roleJP?: string;
   location: string;
   locationJP: string;
   availability: string;
@@ -79,6 +81,25 @@ export interface IProject {
 }
 
 /* ============================================
+   FREELANCE
+   ============================================ */
+export interface IFreelanceProject {
+  id: string;
+  title: string;
+  titleKanji: string;
+  client: string;
+  tagline: string;
+  description: string;
+  details: string[]; // Key architectural/feature highlights
+  tech: string[];
+  date: string; // "YYYY-MM" format for auto-sorting
+  links: {
+    live?: string;
+    github?: string;
+  };
+}
+
+/* ============================================
    SKILLS
    ============================================ */
 export type TSkillLevel = 'expert' | 'proficient' | 'learning';
@@ -87,6 +108,7 @@ export interface ISkill {
   name: string;
   level: TSkillLevel;
   icon?: string;
+  since?: number; // Year skill was first used — shown on hover
 }
 
 export interface ISkillCategory {
