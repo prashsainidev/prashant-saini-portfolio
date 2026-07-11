@@ -344,7 +344,8 @@ function StoryPanel({
         background: isHovered ? 'var(--bg-secondary)' : 'transparent',
         border: '1px solid',
         borderColor: isHovered ? 'var(--border)' : 'transparent',
-        borderLeft: isHovered ? '2px solid var(--accent-red)' : '2px solid transparent',
+        /* Use inset boxShadow for the left accent to avoid mixing border & borderLeft shorthands */
+        boxShadow: isHovered ? 'inset 2px 0 0 var(--accent-red)' : 'inset 2px 0 0 transparent',
         padding: '1rem 1.2rem',
         cursor: 'pointer',
         transition: 'background 0.3s ease, border-color 0.3s ease',

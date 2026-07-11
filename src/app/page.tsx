@@ -15,7 +15,9 @@ import { AboutSection } from '@/components/sections/AboutSection';
 import { SkillsSection } from '@/components/sections/SkillsSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { FreelanceSection } from '@/components/sections/FreelanceSection';
+import { AIProjectsSection } from '@/components/sections/AIProjectsSection';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
+import { OpenSourceSection } from '@/components/sections/OpenSourceSection';
 import { getActiveSections } from '@/data/sections';
 import { siteConfig } from '@/data/siteConfig';
 
@@ -40,9 +42,14 @@ export default function Home() {
         if (section.id === 'freelance') {
           return <FreelanceSection key={section.id} chapter={section.number} />;
         }
-        // aiProjects goes here
+        if (section.id === 'aiProjects') {
+          return <AIProjectsSection key={section.id} chapter={section.number} />;
+        }
         if (section.id === 'experience') {
           return <ExperienceSection key={section.id} chapter={section.number} />;
+        }
+        if (section.id === 'openSource') {
+          return <OpenSourceSection key={section.id} chapter={section.number} />;
         }
         // openSource, blogs, etc. will go here
         return null;

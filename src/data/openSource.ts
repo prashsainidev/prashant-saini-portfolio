@@ -13,6 +13,21 @@ export interface OpenSourceData {
 
 export const openSourceData: OpenSourceData = {
   title: 'Open Source',
-  subtitle: "Contributions and tools I've built for the community.",
-  list: [],
+  subtitle: 'My journey into the open-source community.',
+  list: [
+    {
+      name: 'first-contributions',
+      repo: 'https://github.com/firstcontributions/first-contributions',
+      description:
+        'My very first step into the open-source ecosystem. Learned the standard fork, branch, and Pull Request workflow used by major repositories.',
+      stars: 0,
+    },
+    {
+      name: '[ STATUS: ACTIVE EXPLORATION ]',
+      repo: 'https://github.com/prashsainidev',
+      description:
+        "I am currently hunting for active open-source React and Next.js projects to contribute to. If you maintain a repository and need an extra pair of hands, I'd love to jump in!",
+      stars: 0,
+    },
+  ],
 };

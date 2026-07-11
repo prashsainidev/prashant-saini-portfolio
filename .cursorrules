@@ -1,39 +1,41 @@
-# V2 Portfolio — Cursor IDE Rules
-# These rules apply to ALL AI interactions within this project in Cursor.
-# Mirrors .agents/AGENTS.md for Cursor compatibility.
+# V2 Portfolio — IDE AI Rules
+# These rules apply to ALL AI interactions within this project in Cursor or other IDEs.
+# Mirrors .agents/AGENTS.md for compatibility.
 
 ## IDENTITY
 You are building an award-winning, Japanese Manga / Editorial aesthetic portfolio for Prashant Saini, a Full-Stack Developer from Aligarh, India.
 
 ## MANDATORY FIRST STEP
 Before doing ANYTHING in a new session, read these files IN ORDER:
-1. `docs/PROGRESS.md` — current state and pending tasks
-2. `docs/DESIGN_SYSTEM.md` — before any CSS/styling work
-3. `docs/ARCHITECTURE.md` — before creating any new files
+1. `docs/PROGRESS.md` — current state, pending tasks, and recent architectural decisions.
+2. `docs/SECTION_FLOW.md` — understand the 5-Act section architecture before building sections.
+3. `docs/DESIGN_SYSTEM.md` — read before ANY CSS/styling work (crucial for Day/Night tokens).
+4. `docs/ARCHITECTURE.md` — before creating any new files (understand state and folder structure).
 
 ## GOLDEN RULES
 - NEVER make decisions independently. Always present options to Prashant.
 - NEVER hardcode content in UI components. ALL content comes from `src/data/`.
-- ALWAYS use pure #000000 as background. (User specifically requested pitch black).
 - NEVER install a library without explaining its purpose and trade-offs first.
 - NEVER create boring, generic, minimum-viable-product designs. Everything is premium.
 - ALWAYS update `docs/PROGRESS.md` after completing work.
-- ALWAYS read `docs/DESIGN_SYSTEM.md` before writing any CSS or Tailwind classes.
+- ALWAYS read `docs/DESIGN_SYSTEM.md` before writing any CSS or Tailwind classes. ALL UI must use existing tokens. No parallel token systems.
 - ALWAYS think like a 20-year senior UI/UX + Product Engineer.
 - ALWAYS write Mobile-First CSS (375px → 768px → 1024px → 1440px).
 
 ## TECH STACK (DO NOT DEVIATE)
 - Framework: Next.js 14+ App Router + TypeScript
-- Styling: Tailwind CSS + Custom CSS
+- Styling: Tailwind CSS + Custom CSS (globals.css variables)
 - Animations: GSAP + ScrollTrigger + Framer Motion
+- 3D/Canvas: Three.js + React Three Fiber + Drei
 - Smooth Scroll: Lenis
 - Icons: Lucide React
+- State: Zustand
 - Data: Modular TypeScript files in src/data/
 
 ## DESIGN DIRECTION (DO NOT DEVIATE)
 - Aesthetic: Japanese Manga / Editorial / Cinematic Scroll-Telling
-- Background: Pure Pitch Black #000000
-- Primary Accent: Phosphor Mint #00FF9F / Vermillion Red #E63946
+- Theme System: Day/Night Mode via Zustand (`themeStore`) and `.dark` class toggling.
+- Primary Accent: Vermillion Red #E63946 (Japanese ink stamp)
 - Secondary Accent: Aged Gold #F5E6C8 (parchment)
 - Typography: Space Grotesk (English) + Noto Sans JP (Kanji)
 - Signature: GSAP-drawn curvy SVG arrows connecting sections
@@ -42,10 +44,11 @@ Before doing ANYTHING in a new session, read these files IN ORDER:
 ## DO NOT TOUCH
 - E:\git-workspace\git-workspace-2026-onwards\portfolio (OLD PROJECT — NEVER MODIFY)
 
-## CODE STYLE
+## CODE STYLE & CONVENTIONS
 - Use TypeScript strictly — no `any` types
 - Use `clsx` + `tailwind-merge` for conditional classes
 - Component files: PascalCase (.tsx)
 - Data files: camelCase (.ts)
 - Always add JSDoc comments to components explaining their purpose
 - Use named exports, not default exports for components (except pages)
+- 'use client' usage: Only at the top of interactive components (GSAP, Framer Motion, Three.js, event listeners). Keep layouts server-rendered where possible.

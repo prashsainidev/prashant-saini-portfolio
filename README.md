@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prashant Saini — V2 Portfolio
 
-## Getting Started
+An award-winning, Japanese Manga / Editorial aesthetic personal portfolio built for performance, cinematic scroll-telling, and premium UI/UX.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework:** Next.js 14+ (App Router) + TypeScript
+- **Styling:** Tailwind CSS + Custom CSS (Day/Night mode via CSS vars)
+- **Animations:** GSAP + ScrollTrigger + Framer Motion
+- **3D / Canvas:** Three.js + React Three Fiber
+- **State Management:** Zustand
+- **Smooth Scroll:** Lenis
+- **Code Quality:** ESLint, Prettier, Husky, lint-staged
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Development Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install dependencies:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   npm install
+   ```
 
-## Learn More
+2. **Run development server:**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Pre-commit Hooks:**
+   This project uses Husky to automatically run ESLint and Prettier on staged files before every commit. You do not need to format manually.
 
-## Deploy on Vercel
+## 📁 Architecture Overview
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `src/components/sections/`: Core portfolio sections (Hero, About, Experience, etc.)
+- `src/components/ui/`: Reusable primitives (CustomCursor, MangaWarpCanvas, ThemeToggle, etc.)
+- `src/data/`: All content data. **No content is hardcoded in components.**
+- `docs/`: Extensive project documentation.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📖 Documentation
+
+Before contributing or using AI assistants on this repository, you **must** read the documentation in this order:
+
+1. `docs/PROGRESS.md`
+2. `docs/SECTION_FLOW.md`
+3. `docs/DESIGN_SYSTEM.md`
+4. `docs/ARCHITECTURE.md`
+
+## 🚀 Deployment
+
+Deployable to Vercel with zero configuration required. The build script automatically handles static page generation.

@@ -1,6 +1,6 @@
 # V2 Portfolio — Design System Bible
 # READ THIS before writing any CSS, Tailwind class, or component styling.
-# Last Updated: 2026-07-08
+# Last Updated: 2026-07-11
 
 ---
 
@@ -13,60 +13,44 @@ Core principles:
 2. **Wabi-sabi** — Embrace structured asymmetry. Not everything is centered. Grids are intentional.
 3. **Cinematic Scroll-Telling** — The user is reading a manga story arc, not visiting a website.
 4. **Typography IS the design** — Massive headlines are the primary visual element.
-5. **Ink on paper** — Warm dark backgrounds, not harsh cold black. Like old Japanese ink.
+5. **Ink on paper** — Warm dark backgrounds in Night mode, warm paper in Day mode.
 
 ---
 
-## 🎨 COLOR PALETTE
+## 🎨 COLOR PALETTE (DAY/NIGHT THEME)
 
-```
+The portfolio supports Day and Night modes toggled via `ThemeToggle.tsx` which manages the `.dark` class on the `<html>` element. **Never hardcode hex values for backgrounds/text**. Always use CSS variables.
+
+### CSS Variables (from `globals.css`)
+```css
 /* BACKGROUNDS */
---color-bg-primary:    #0D0D0B;   /* Warm ink black — main page background */
---color-bg-secondary:  #141412;   /* Slightly lighter for section alternation */
---color-bg-card:       #1A1A17;   /* Card backgrounds */
---color-bg-overlay:    rgba(13, 13, 11, 0.85); /* Overlay for modals/panels */
+--bg-primary:      /* Day: #f5f0e8 (warm paper) | Night: #0d0d0b (warm ink black) */
+--bg-secondary:    /* Day: #ede8de (slightly darker paper) | Night: #141412 (slightly lighter ink) */
+--bg-card:         /* Day: #fdfaf5 | Night: #1a1a17 */
+--bg-overlay:      /* Day: rgba(245, 240, 232, 0.92) | Night: rgba(13, 13, 11, 0.92) */
 
 /* TEXT */
---color-text-primary:  #F0EBE0;   /* Warm off-white — main readable text */
---color-text-secondary:#A89880;   /* Muted warm tan — secondary/caption text */
---color-text-dim:      #5C5449;   /* Very dim — metadata, timestamps */
+--text-primary:    /* Day: #1a1512 | Night: #f0ebe0 */
+--text-secondary:  /* Day: #5c4f42 | Night: #a89880 */
+--text-dim:        /* Day: #9c8e82 | Night: #5c5449 */
 
-/* ACCENT COLORS */
---color-accent-red:    #E63946;   /* Vermillion Red — primary accent (Japanese ink stamp) */
---color-accent-gold:   #F5E6C8;   /* Aged parchment gold — secondary accent */
---color-accent-blue:   #4A90D9;   /* Cool electric blue — for code/tech highlights */
-
-/* BORDERS & LINES */
---color-border:        #2A2820;   /* Subtle warm border */
---color-border-accent: #E63946;   /* Red border for highlighted elements */
+/* ACCENT COLORS (Identical across both themes) */
+--accent-red:      #e63946   /* Vermillion Red — primary accent (Japanese ink stamp) */
+--accent-gold:     #c9a96e   /* Aged parchment gold — secondary accent */
+--accent-blue:     #4a90d9   /* Tech blue */
 
 /* KANJI / DECORATIVE */
---color-kanji-bg:      rgba(240, 235, 224, 0.03); /* Ghost kanji background text */
---color-kanji-accent:  rgba(230, 57, 70, 0.15);   /* Red-tinted kanji accents */
+--kanji-ghost:     rgba(var(--text-primary-rgb), 0.03) /* Ghost kanji background text */
 ```
 
-### Tailwind Custom Colors (tailwind.config.ts)
+### Tailwind Configuration (`tailwind.config.ts`)
+While CSS variables handle the dynamic Day/Night switching, the static token palettes are available in Tailwind if needed for specific static elements:
 ```js
 colors: {
-  ink: {
-    black: '#0D0D0B',
-    dark:  '#141412',
-    card:  '#1A1A17',
-  },
-  parchment: {
-    primary:   '#F0EBE0',
-    secondary: '#A89880',
-    dim:       '#5C5449',
-  },
-  vermillion: {
-    DEFAULT: '#E63946',
-    dark:    '#C1121F',
-    light:   '#FF6B6B',
-  },
-  gold: {
-    DEFAULT: '#F5E6C8',
-    dark:    '#C9A96E',
-  }
+  ink: { black: '#0D0D0B', dark: '#141412', card: '#1A1A17' },
+  parchment: { primary: '#F0EBE0', secondary: '#A89880', dim: '#5C5449' },
+  vermillion: { DEFAULT: '#E63946', dark: '#C1121F', light: '#FF6B6B' },
+  gold: { DEFAULT: '#F5E6C8', dark: '#C9A96E' }
 }
 ```
 
@@ -160,6 +144,7 @@ The cursor replaces the default browser cursor:
 - **Hover on links/buttons**: Expands to 40px ring with vermillion border
 - **Click**: Ink-drop splash animation (canvas particle burst)
 - **Trail**: Subtle ink-drop particles that follow and fade
+- **Drag**: Horizontal resize indicator for scrollable sections like Projects.
 
 ---
 

@@ -554,7 +554,7 @@ export function ExperienceSection({ chapter }: { chapter: string }) {
         position: 'relative',
         padding: 'clamp(4rem, 8vh, 8rem) clamp(1.5rem, 5vw, 6rem)',
         overflow: 'hidden',
-        background: 'var(--bg-secondary)',
+        background: 'var(--bg-primary)',
       }}
     >
       {/* Removed Kanji watermarks to maintain a clean, readable layout for the dense Experience section */}
@@ -678,14 +678,6 @@ export function ExperienceSection({ chapter }: { chapter: string }) {
           </div>
         ))}
       </div>
-
-      {/* ── Hanko pulse keyframe ── */}
-      <style>{`
-        @keyframes hanko-pulse {
-          0%, 100% { box-shadow: 0 0 18px rgba(230,57,70,0.4), inset 0 0 12px rgba(230,57,70,0.08); }
-          50% { box-shadow: 0 0 28px rgba(230,57,70,0.7), inset 0 0 18px rgba(230,57,70,0.15); }
-        }
-      `}</style>
     </section>
   );
 }

@@ -1,1 +1,15 @@
 npx --no-install lint-staged
+
+# Check for staged code files
+staged_code=$(git diff --cached --name-only | awk '/^(src|app|components|lib|data)\// && !/\.(test|spec)\./ {print $0}')
+
+if [ -n "$staged_code" ]; then
+  # Check for staged doc files
+  staged_docs=$(git diff --cached --name-only | awk '/^(docs\/PROGRESS\.md|docs\/ARCHITECTURE\.md|docs\/DESIGN_SYSTEM\.md|\.agents\/AGENTS\.md|AGENTS\.md)$/ {print $0}')
+  
+  if [ -z "$staged_docs" ]; then
+    echo ""
+    echo -e "\033[33m⚠️  Code changed but no docs updated. Did you forget PROGRESS.md / ARCHITECTURE.md? (This is just a reminder, commit will proceed.)\033[0m"
+    echo ""
+  fi
+fi

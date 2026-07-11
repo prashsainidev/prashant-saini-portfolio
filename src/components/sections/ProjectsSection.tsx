@@ -229,7 +229,7 @@ function ProjectCard({
           transformOrigin: 'top center',
           transformPerspective: 1000,
           border: isFeatured
-            ? `1px solid ${glow.border.replace(')', ', 0.3)').replace('rgb', 'rgba')}`
+            ? `1px solid ${glow.border.replace(/[\d.]+\)$/, '0.3)')}`
             : '1px solid rgba(255,255,255,0.06)',
           background: 'var(--bg-card)',
           height: 'clamp(520px, 62vh, 700px)',

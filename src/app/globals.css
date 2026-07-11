@@ -157,6 +157,23 @@
 }
 
 /* ============================================
+   EXPERIENCE — HANKO SEAL PULSE
+   ============================================ */
+@keyframes hanko-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 18px rgba(230, 57, 70, 0.4),
+      inset 0 0 12px rgba(230, 57, 70, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 28px rgba(230, 57, 70, 0.7),
+      inset 0 0 18px rgba(230, 57, 70, 0.15);
+  }
+}
+
+/* ============================================
    RESET & BASE
    ============================================ */
 html {
@@ -272,7 +289,7 @@ video {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--text-dim);
-  margin-bottom: 1.5rem;
+  /* No margin-bottom — each section wrapper controls its own spacing */
 }
 
 .chapter-label .chapter-number {

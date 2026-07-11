@@ -1,6 +1,6 @@
 # V2 Portfolio — Technical Architecture
 # READ THIS before creating any new files or folders.
-# Last Updated: 2026-07-08
+# Last Updated: 2026-07-11
 
 ---
 
@@ -14,6 +14,7 @@ v2-portfolio/
 ├── docs/
 │   ├── PROGRESS.md                  ← Session tracker (read & update every session)
 │   ├── DESIGN_SYSTEM.md             ← Design bible (read before any styling)
+│   ├── SECTION_FLOW.md              ← 5-Act narrative architecture & registry
 │   └── ARCHITECTURE.md              ← This file
 │
 ├── public/
@@ -25,60 +26,71 @@ v2-portfolio/
 │
 ├── src/
 │   ├── app/                         ← Next.js App Router
-│   │   ├── layout.tsx               ← Root layout (Lenis, fonts, metadata)
-│   │   ├── page.tsx                 ← Home page (assembles all sections)
-│   │   └── globals.css              ← Base CSS reset + CSS custom properties
+│   │   ├── layout.tsx               ← Root layout (Lenis, fonts, metadata, cursor)
+│   │   ├── page.tsx                 ← Home page (assembles all sections dynamically)
+│   │   └── globals.css              ← Base CSS reset + CSS Day/Night custom properties
 │   │
 │   ├── components/
 │   │   ├── layout/                  ← Layout-level components
-│   │   │   ├── Navbar.tsx           ← Navigation bar
-│   │   │   └── Footer.tsx           ← Site footer
+│   │   │   └── Navbar.tsx           ← Navigation bar (dynamic based on sections)
 │   │   │
 │   │   ├── ui/                      ← Reusable UI primitives
-│   │   │   ├── CustomCursor.tsx     ← Ink-drop cursor with canvas trail
-│   │   │   ├── CurvyArrow.tsx       ← GSAP-drawn SVG connecting arrows
-│   │   │   ├── KanjiAccent.tsx      ← Reusable Kanji text component
+│   │   │   ├── AbstractWireframe.tsx← 3D wireframe decorator (Three.js)
 │   │   │   ├── ChapterLabel.tsx     ← "01 / EXPERIENCE" style labels
-│   │   │   ├── SectionWrapper.tsx   ← Handles scroll reveal animations
+│   │   │   ├── CurvyArrow.tsx       ← GSAP-drawn SVG connecting arrows
+│   │   │   ├── CustomCursor.tsx     ← Ink-drop cursor with canvas trail
+│   │   │   ├── InkStamp.tsx         ← Red stamp accent element
+│   │   │   ├── JpTooltip.tsx        ← Cinematic JP translation tooltip (Portal)
+│   │   │   ├── KanjiAccent.tsx      ← Reusable Kanji text component
 │   │   │   ├── MangaPanel.tsx       ← Comic panel grid layout component
-│   │   │   └── InkStamp.tsx         ← Red stamp accent element
+│   │   │   ├── MangaWarpCanvas.tsx  ← Canvas shader background
+│   │   │   ├── ThemeToggle.tsx      ← Day/Night toggle
+│   │   │   └── index.ts             ← Barrel export
 │   │   │
 │   │   └── sections/                ← Each portfolio section
-│   │       ├── HeroSection.tsx      ← Section 01: Manga title splash
-│   │       ├── AboutSection.tsx     ← Section 02: Comic panel bio
-│   │       ├── ExperienceSection.tsx← Section 03: GSAP vertical timeline
-│   │       ├── ProjectsSection.tsx  ← Section 04: Horizontal scroll gallery
-│   │       ├── SkillsSection.tsx    ← Section 05: Editorial tech grid
-│   │       ├── EducationSection.tsx ← Section 06: Academic cards
-│   │       ├── CertSection.tsx      ← Section 07: Certificate masonry
-│   │       ├── BlogsSection.tsx     ← Section 08: Compact editorial list
-│   │       ├── ContactSection.tsx   ← Section 09: Layered editorial form
-│   │       └── LoadingScreen.tsx    ← Initial loading animation
+│   │       ├── AboutSection.tsx     ← Section 01: Comic panel bio
+│   │       ├── AIProjectsSection.tsx← Section 05: Manga Tech-Grid for AI
+│   │       ├── ExperienceSection.tsx← Section 06: GSAP vertical timeline
+│   │       ├── FreelanceSection.tsx ← Section 04: Client work showcase
+│   │       ├── HeroSection.tsx      ← Section 00: Manga title splash
+│   │       ├── ProjectsSection.tsx  ← Section 03: Horizontal scroll gallery
+│   │       └── SkillsSection.tsx    ← Section 02: Editorial tech grid
 │   │
 │   ├── data/                        ← ALL CONTENT DATA (never hardcode in components)
-│   │   ├── personal.ts              ← Bio, socials, resume, contact
-│   │   ├── experience.ts            ← Work history with timeline data
-│   │   ├── projects.ts              ← All projects with full details
-│   │   ├── skills.ts                ← Tech stack organized by category
-│   │   ├── education.ts             ← Degrees and academic info
-│   │   ├── certifications.ts        ← Certificates with images/links
+│   │   ├── about.ts                 ← Bio, stats, traits
+│   │   ├── aiProjects.ts            ← AI-specific projects
 │   │   ├── blogs.ts                 ← Blog/article list
-│   │   └── siteConfig.ts            ← Nav links, metadata, site-wide config
+│   │   ├── certifications.ts        ← Certificates with images/links
+│   │   ├── contact.ts               ← Contact info
+│   │   ├── education.ts             ← Degrees and academic info
+│   │   ├── experience.ts            ← Work history with timeline data
+│   │   ├── freelance.ts             ← Client work entries
+│   │   ├── hero.ts                  ← Hero data (name, role, resume)
+│   │   ├── newsletter.ts            ← Newsletter CTA data
+│   │   ├── openSource.ts            ← OSS contributions
+│   │   ├── podcast.ts               ← Podcast episodes
+│   │   ├── projects.ts              ← All projects with full details
+│   │   ├── sections.ts              ← 5-Act Registry (Order, JP labels, Config keys)
+│   │   ├── siteConfig.ts            ← Master on/off display toggles for sections
+│   │   ├── skills.ts                ← Tech stack organized by category
+│   │   ├── talks.ts                 ← Speaking events
+│   │   ├── testimonials.ts          ← Endorsements
+│   │   ├── twitter.ts               ← Social feed data
+│   │   └── volunteer.ts             ← Community service
 │   │
-│   ├── hooks/                       ← Custom React hooks
-│   │   ├── useLenis.ts              ← Lenis smooth scroll instance
-│   │   ├── useGSAP.ts               ← GSAP context hook
-│   │   └── useMousePosition.ts      ← For custom cursor tracking
+│   ├── hooks/                       ← Custom React hooks (empty if using pure libs)
 │   │
-│   ├── lib/                         ← Utilities and helpers
-│   │   ├── gsap.ts                  ← GSAP + plugins initialization
+│   ├── lib/                         ← Utilities and State Stores
+│   │   ├── fetchBlogs.ts            ← Hashnode/Dev.to API fetcher
+│   │   ├── navStore.ts              ← Zustand store for mobile menu state
+│   │   ├── themeStore.ts            ← Zustand store for Day/Night mode state
 │   │   └── utils.ts                 ← General utility functions (cn, clamp, etc.)
 │   │
 │   └── types/                       ← TypeScript interfaces
 │       └── index.ts                 ← All shared types
 │
-├── .cursorrules                     ← Cursor IDE rules
-├── .gitignore
+├── .cursorrules                     ← IDE AI Rules
+├── .husky/                          ← Git hooks
 ├── next.config.ts
 ├── tailwind.config.ts
 ├── tsconfig.json
@@ -106,7 +118,7 @@ v2-portfolio/
 
 ### 1. Data → Component Pattern (MANDATORY)
 ```typescript
-// ✅ CORRECT: Data from src/data/, passed as props
+// ✅ CORRECT: Data from src/data/, passed as props or imported directly
 import { experienceData } from '@/data/experience';
 <ExperienceSection data={experienceData} />
 
@@ -116,7 +128,12 @@ const ExperienceSection = () => (
 )
 ```
 
-### 2. GSAP ScrollTrigger Pattern
+### 2. State Management (Zustand)
+Global state is managed via lightweight Zustand stores in `src/lib/`.
+- `themeStore.ts`: Manages Day/Night mode. Toggles the `.dark` class on `<html>`.
+- `navStore.ts`: Manages mobile menu open/close state.
+
+### 3. GSAP ScrollTrigger Pattern
 ```typescript
 // Always use useGSAP hook from @gsap/react for cleanup safety
 import { useGSAP } from '@gsap/react';
@@ -133,19 +150,10 @@ useGSAP(() => {
 }, []);
 ```
 
-### 3. Lenis + GSAP Integration
-```typescript
-// In layout.tsx — Lenis must tick GSAP ScrollTrigger
-lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-gsap.ticker.lagSmoothing(0);
+### 4. Tailwind + Custom CSS Variables (Day/Night Mode)
 ```
-
-### 4. Tailwind + Custom CSS Pattern
-```
-- Use Tailwind for: spacing, flex/grid, responsive breakpoints, basic colors
-- Use Custom CSS (globals.css) for: complex animations, CSS custom properties,
-  clip-paths, writing-mode (vertical Japanese text), complex pseudo-elements
+- Use Tailwind for: spacing, flex/grid, responsive breakpoints, structural colors.
+- Use Custom CSS (globals.css) for: Day/Night mode tokens (`var(--bg-primary)`), complex animations, clip-paths, writing-mode (vertical Japanese text).
 ```
 
 ---
@@ -153,7 +161,7 @@ gsap.ticker.lagSmoothing(0);
 ## 🚀 DEPENDENCIES LIST
 
 ### Core
-- `next` — Framework
+- `next` (14+) — Framework
 - `react` + `react-dom` — UI library
 - `typescript` — Type safety
 
@@ -161,17 +169,23 @@ gsap.ticker.lagSmoothing(0);
 - `tailwindcss` — Utility CSS
 - `clsx` + `tailwind-merge` — Conditional class names
 
-### Animation
+### Animation & 3D
 - `gsap` — Core animation engine
 - `@gsap/react` — React GSAP hooks (useGSAP)
 - `framer-motion` — Micro-animations
 - `lenis` — Smooth scroll
+- `three` + `@react-three/fiber` + `@react-three/drei` — WebGL & 3D components
 
 ### UI
 - `lucide-react` — Icon library
 
-### Utils
-- `zustand` — State management (if needed)
+### State & Utils
+- `zustand` — Global state management
+
+### CI/CD & Formatting
+- `husky` — Pre-commit git hooks
+- `lint-staged` — Run linters on staged files
+- `eslint` + `prettier` — Code quality & formatting
 
 ---
 
@@ -181,5 +195,5 @@ gsap.ticker.lagSmoothing(0);
 2. Fonts: use Next.js `next/font/google` — NEVER link tags in HTML
 3. GSAP: always cleanup animations in `useGSAP` — prevent memory leaks
 4. Lenis: single instance only, created in root layout
-5. Heavy sections (Projects, Hero): lazy-load with `React.lazy` + `Suspense`
+5. Heavy sections (Projects, Hero): lazy-load with `React.lazy` + `Suspense` (if performance degrades)
 6. Kanji background watermarks: CSS `content` property or `aria-hidden` spans — NOT real DOM text for screen readers
