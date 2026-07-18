@@ -72,6 +72,7 @@ Reference sites: slamdunk-five.vercel.app, bruno-simon.com, aristidebenoist.com
 - [x] **Docs** — Updated `ARCHITECTURE.md` with OpenSourceSection + corrected date
 - [x] **Lenis** — Initialized Lenis v1.3.25 via `SmoothScroll.tsx` (ReactLenis root) in `layout.tsx` — cinematic smooth scroll now active with GSAP ScrollTrigger sync
 - [x] **OpenGraph** — Created and added `og-image.png` to `public/images/og/` — social share previews now show the Japanese editorial card
+- [x] **BlogsSection** — Act III [ 08 ] 記事 — Japanese Editorial Broadsheet: Featured Dispatch + asymmetric editorial grid + 5 article data + Hashnode CTA
 
 ## 📋 PENDING SECTIONS (IN ORDER — see docs/SECTION_FLOW.md for full spec)
 
@@ -80,7 +81,7 @@ Reference sites: slamdunk-five.vercel.app, bruno-simon.com, aristidebenoist.com
 - [x] **OpenSourceSection** (`openSource`)
 
 ### Act III — 声 (The Voice)
-- [ ] **BlogsSection** (`blogs`) — Compact editorial article list
+- [x] **BlogsSection** (`blogs`) — Japanese Editorial Broadsheet layout: Featured Dispatch strip + asymmetric editorial grid + per-article ghost kanji + Hashnode CTA card
 - [ ] **TalksSection** (`talks`) — Speaking events timeline
 - [ ] **PodcastSection** (`podcast`) — Audio episodes embed
 - [ ] **TwitterSection** (`twitter`) — X/Twitter feed embed

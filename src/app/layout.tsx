@@ -32,6 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
    METADATA
    ============================================ */
 export const metadata: Metadata = {
+  metadataBase: new URL('https://prashsainidev.vercel.app'),
   title: 'Prashant Saini — Full-Stack Developer',
   description:
     'Full-Stack Developer from Aligarh, India. Specializing in React.js, Node.js, and building clean, practical web experiences.',

@@ -13,7 +13,7 @@ export const siteConfig = {
   aiProjects: { display: true },
   experience: { display: true },
   openSource: { display: true },
-  blogs: { display: false },
+  blogs: { display: true },
   talks: { display: false },
   podcast: { display: false },
   twitter: { display: false },

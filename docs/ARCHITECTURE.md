@@ -51,6 +51,7 @@ v2-portfolio/
 │   │   └── sections/                ← Each portfolio section
 │   │       ├── AboutSection.tsx     ← Section 01: Comic panel bio
 │   │       ├── AIProjectsSection.tsx← Section 05: Manga Tech-Grid for AI
+│   │       ├── BlogsSection.tsx     ← Section 08: Japanese Editorial Broadsheet
 │   │       ├── ExperienceSection.tsx← Section 06: GSAP vertical timeline
 │   │       ├── FreelanceSection.tsx ← Section 04: Client work showcase
 │   │       ├── HeroSection.tsx      ← Section 00: Manga title splash

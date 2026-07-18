@@ -22,6 +22,7 @@ import { FreelanceSection } from '@/components/sections/FreelanceSection';
 import { AIProjectsSection } from '@/components/sections/AIProjectsSection';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { OpenSourceSection } from '@/components/sections/OpenSourceSection';
+import { BlogsSection } from '@/components/sections/BlogsSection';
 import { getActiveSections } from '@/data/sections';
 import { siteConfig } from '@/data/siteConfig';
 
@@ -42,8 +43,8 @@ const SECTION_MAP: Record<string, React.ComponentType<SectionProps>> = {
   experience: ExperienceSection,
   openSource: OpenSourceSection,
   // Act III — 声 (The Voice)
-  // blogs:    BlogsSection,    ← uncomment when component is built
-  // talks:    TalksSection,
+  blogs: BlogsSection,
+  // talks:    TalksSection,    ← uncomment when component is built
   // podcast:  PodcastSection,
   // twitter:  TwitterSection,
   // Act IV — 資格 (The Credentials)
