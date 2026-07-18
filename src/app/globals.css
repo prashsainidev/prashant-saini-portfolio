@@ -119,7 +119,7 @@
 }
 
 /* ============================================
-   SMOOTH THEME TRANSITION
+   BASE RESET
    ============================================ */
 *,
 *::before,
@@ -127,7 +127,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* All color changes animate smoothly on theme toggle */
+}
+
+/* ============================================
+   SMOOTH THEME TRANSITION
+   Scoped away from canvas/svg so GSAP animations
+   don't stutter when theme toggle fires.
+   ============================================ */
+*:not(canvas):not(svg):not(svg *) {
   transition:
     background-color 0.4s ease,
     color 0.4s ease,

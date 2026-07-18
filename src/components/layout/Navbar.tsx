@@ -19,16 +19,27 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
   const isForceHidden = useNavStore((state) => state.isForceHidden);
+  // Computed once — used for both desktop nav and mobile menu
+  const sections = getActiveSections();
 
   useEffect(() => {
     const nav = navRef.current;
     if (!nav) return;
+
     if (isForceHidden) {
-      gsap.to(nav, { yPercent: -100, duration: 0.4, ease: 'power2.inOut' });
+      // Projects gallery is now active — hide navbar immediately.
+      // overwrite:'auto' kills any in-progress show tween to prevent flicker.
+      gsap.to(nav, { yPercent: -100, duration: 0.4, ease: 'power2.inOut', overwrite: 'auto' });
     } else {
-      if (window.scrollY <= 100) {
-        gsap.to(nav, { yPercent: 0, duration: 0.4, ease: 'power2.inOut' });
+      // Force-hide lifted (user exited the gallery).
+      // Only restore if scrolling UP or near top — avoids a flash when leaving bottom.
+      // If scrolling DOWN, the scroll handler takes over on the very next event.
+      const currentY = window.scrollY;
+      if (currentY < lastScrollY.current || currentY <= 100) {
+        gsap.to(nav, { yPercent: 0, duration: 0.4, ease: 'power2.inOut', overwrite: 'auto' });
       }
+      // Sync so the scroll handler doesn't see a phantom direction change after forceHidden lifts.
+      lastScrollY.current = currentY;
     }
   }, [isForceHidden]);
 
@@ -40,18 +51,19 @@ export function Navbar() {
       const currentY = window.scrollY;
       setScrolled(currentY > 60);
 
-      // Force hide if global state says so (e.g. inside Projects gallery)
+      // While Projects gallery is pinned, keep navbar out of view regardless of direction.
       if (useNavStore.getState().isForceHidden) {
-        gsap.to(nav, { yPercent: -100, duration: 0.4, ease: 'power2.inOut' });
+        gsap.to(nav, { yPercent: -100, duration: 0.4, ease: 'power2.inOut', overwrite: 'auto' });
         lastScrollY.current = currentY;
         return;
       }
 
-      // Hide on scroll down, show on scroll up
+      // Standard hide-on-down / show-on-up logic.
+      // overwrite:'auto' prevents the isForceHidden effect and this handler from colliding.
       if (currentY > lastScrollY.current && currentY > 100) {
-        gsap.to(nav, { yPercent: -100, duration: 0.4, ease: 'power2.inOut' });
+        gsap.to(nav, { yPercent: -100, duration: 0.4, ease: 'power2.inOut', overwrite: 'auto' });
       } else {
-        gsap.to(nav, { yPercent: 0, duration: 0.4, ease: 'power2.inOut' });
+        gsap.to(nav, { yPercent: 0, duration: 0.4, ease: 'power2.inOut', overwrite: 'auto' });
       }
       lastScrollY.current = currentY;
     };
@@ -134,7 +146,7 @@ export function Navbar() {
         }}
         className="desktop-nav"
       >
-        {getActiveSections().map((link) => (
+        {sections.map((link) => (
           <button
             key={link.id}
             onClick={() => handleNavClick(link.href)}
@@ -261,7 +273,7 @@ export function Navbar() {
               gap: '1.5rem',
             }}
           >
-            {getActiveSections().map((link) => (
+            {sections.map((link) => (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.href)}

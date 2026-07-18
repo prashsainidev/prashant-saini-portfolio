@@ -253,7 +253,7 @@ function ProjectCard({
                 key={link.name}
                 href={link.url}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 data-cursor-view
                 style={{
                   display: 'inline-flex',
@@ -422,7 +422,7 @@ function HeroProjectCard({ project }: { project: (typeof aiProjectsData.list)[0]
                   key={link.name}
                   href={link.url}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   data-cursor-view
                   style={{
                     display: 'inline-flex',

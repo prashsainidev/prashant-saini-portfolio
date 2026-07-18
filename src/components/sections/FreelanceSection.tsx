@@ -229,7 +229,7 @@ function FreelanceEntry({ project, index }: { project: IFreelanceProject; index:
             <a
               href={project.links.live}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               data-cursor-view
               style={{
                 display: 'inline-flex',
@@ -264,7 +264,7 @@ function FreelanceEntry({ project, index }: { project: IFreelanceProject; index:
             <a
               href={project.links.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               data-cursor-view
               style={{
                 display: 'inline-flex',

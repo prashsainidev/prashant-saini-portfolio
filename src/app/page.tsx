@@ -7,7 +7,11 @@
  *   01 — About (Bio, stats, 3D wireframe, story panels)
  *   02 — Skills (Physics repulsion pill chamber)
  *   03 — Projects (Horizontal scroll film strip, 3D tilt cards)
- *   [More sections TBD]
+ *   04 — Freelance (Client work showcase)
+ *   05 — AI Projects (Manga Tech-Grid)
+ *   06 — Experience (GSAP vertical timeline)
+ *   07 — Open Source (Git commit log terminal aesthetic)
+ *   [Act III–V sections added here as 1-liners in SECTION_MAP]
  */
 import { Navbar } from '@/components/layout/Navbar';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -21,6 +25,37 @@ import { OpenSourceSection } from '@/components/sections/OpenSourceSection';
 import { getActiveSections } from '@/data/sections';
 import { siteConfig } from '@/data/siteConfig';
 
+/** Each section component receives at minimum a `chapter` prop */
+type SectionProps = { chapter: string };
+
+/**
+ * SECTION_MAP — Registry of section ID → component.
+ * To add a new section: import the component and add a 1-line entry here.
+ * The section renders automatically when siteConfig[key].display = true.
+ */
+const SECTION_MAP: Record<string, React.ComponentType<SectionProps>> = {
+  about: AboutSection,
+  skills: SkillsSection,
+  projects: ProjectsSection,
+  freelance: FreelanceSection,
+  aiProjects: AIProjectsSection,
+  experience: ExperienceSection,
+  openSource: OpenSourceSection,
+  // Act III — 声 (The Voice)
+  // blogs:    BlogsSection,    ← uncomment when component is built
+  // talks:    TalksSection,
+  // podcast:  PodcastSection,
+  // twitter:  TwitterSection,
+  // Act IV — 資格 (The Credentials)
+  // education:       EducationSection,
+  // certifications:  CertificationsSection,
+  // volunteer:       VolunteerSection,
+  // testimonials:    TestimonialsSection,
+  // Act V — 繋がり (The Connection)
+  // newsletter: NewsletterSection,
+  // contact:    ContactSection,
+};
+
 export default function Home() {
   const activeSections = getActiveSections();
 
@@ -30,29 +65,9 @@ export default function Home() {
       {siteConfig.hero.display && <HeroSection />}
 
       {activeSections.map((section) => {
-        if (section.id === 'about') {
-          return <AboutSection key={section.id} chapter={section.number} />;
-        }
-        if (section.id === 'skills') {
-          return <SkillsSection key={section.id} chapter={section.number} />;
-        }
-        if (section.id === 'projects') {
-          return <ProjectsSection key={section.id} chapter={section.number} />;
-        }
-        if (section.id === 'freelance') {
-          return <FreelanceSection key={section.id} chapter={section.number} />;
-        }
-        if (section.id === 'aiProjects') {
-          return <AIProjectsSection key={section.id} chapter={section.number} />;
-        }
-        if (section.id === 'experience') {
-          return <ExperienceSection key={section.id} chapter={section.number} />;
-        }
-        if (section.id === 'openSource') {
-          return <OpenSourceSection key={section.id} chapter={section.number} />;
-        }
-        // openSource, blogs, etc. will go here
-        return null;
+        const Component = SECTION_MAP[section.id];
+        // If no component is registered yet, skip silently (section is planned but not built)
+        return Component ? <Component key={section.id} chapter={section.number} /> : null;
       })}
     </main>
   );

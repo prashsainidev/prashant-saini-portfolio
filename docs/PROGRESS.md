@@ -1,7 +1,7 @@
 # V2 Portfolio — Progress Tracker
 # MANDATORY: AI agent reads this at the START of every session.
 # MANDATORY: AI agent updates this at the END of every session.
-# Last Updated: 2026-07-11
+# Last Updated: 2026-07-18
 
 ---
 
@@ -57,9 +57,19 @@ Reference sites: slamdunk-five.vercel.app, bruno-simon.com, aristidebenoist.com
 ---
 
 ## 🔄 IN PROGRESS
-- [ ] Planning Act III (The Voice) components.
+- [ ] Planning Act III (The Voice) components — BlogsSection is next.
 
 ---
+
+## ✅ AUDIT FIXES COMPLETED (2026-07-18)
+- [x] **Security** — Added `rel="noopener noreferrer"` to ALL `target="_blank"` links across 3 section files (OpenSource, AIProjects, Freelance) — tabnapping vulnerability closed
+- [x] **Bug** — Added missing `roleJP` field to `hero.ts` — hero vertical JP text now renders correctly
+- [x] **Bug** — Removed nuclear `ScrollTrigger.getAll().kill()` from HeroSection cleanup — other sections' scroll animations no longer get nuked on hot reload
+- [x] **Performance** — Replaced raw `<img>` with Next.js `<Image priority>` in HeroSection — optimized WebP serving + above-fold priority loading
+- [x] **Performance** — Memoized `getActiveSections()` in Navbar — computed once, used for both desktop/mobile nav
+- [x] **Performance** — Scoped global CSS `transition` to exclude `canvas` and `svg` — prevents GSAP animation jitter on theme toggle
+- [x] **Architecture** — Refactored `page.tsx` if-chain → `SECTION_MAP` Record pattern — future sections are now a 1-line addition
+- [x] **Docs** — Updated `ARCHITECTURE.md` with OpenSourceSection + corrected date
 
 ## 📋 PENDING SECTIONS (IN ORDER — see docs/SECTION_FLOW.md for full spec)
 
@@ -104,11 +114,15 @@ Reference sites: slamdunk-five.vercel.app, bruno-simon.com, aristidebenoist.com
 | 2026-07-11 | **Data Modularization** | Split monolithic files into `hero.ts`, `about.ts`, `twitter.ts`, etc. for scalability |
 | 2026-07-11 | **AIProjectsSection Design** | Created "Manga Tech-Grid" with Hanko-stamped models and vertical Japanese numerals to distinguish from standard projects |
 | 2026-07-11 | **OpenSource Redesign** | Git Commit Log / Terminal aesthetic replacing previous Experience clone for unique section identity |
+| 2026-07-18 | **Audit Fix: rel attribute** | All `target="_blank"` links now use `rel="noopener noreferrer"` — closes tabnapping vulnerability |
+| 2026-07-18 | **Audit Fix: page.tsx Map** | Replaced if-chain with SECTION_MAP Record — adding future sections is now a 1-liner |
+| 2026-07-18 | **Audit Fix: ScrollTrigger** | HeroSection cleanup no longer calls `getAll().kill()` — scoped cleanup only |
+| 2026-07-18 | **Audit Fix: Image component** | Hero character now uses Next.js `<Image priority>` — WebP optimization + no layout shift |
 
 ---
 
 ## ⚠️ KNOWN ISSUES / BLOCKERS
-- None currently.
+- None currently. All audit vulnerabilities resolved on 2026-07-18.
 
 ---
 

@@ -1,6 +1,6 @@
 # V2 Portfolio — Technical Architecture
 # READ THIS before creating any new files or folders.
-# Last Updated: 2026-07-11
+# Last Updated: 2026-07-18
 
 ---
 
@@ -53,6 +53,7 @@ v2-portfolio/
 │   │       ├── ExperienceSection.tsx← Section 06: GSAP vertical timeline
 │   │       ├── FreelanceSection.tsx ← Section 04: Client work showcase
 │   │       ├── HeroSection.tsx      ← Section 00: Manga title splash
+│   │       ├── OpenSourceSection.tsx← Section 07: Git commit log / terminal aesthetic
 │   │       ├── ProjectsSection.tsx  ← Section 03: Horizontal scroll gallery
 │   │       └── SkillsSection.tsx    ← Section 02: Editorial tech grid
 │   │

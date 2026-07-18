@@ -19,11 +19,9 @@
 import { useEffect, useRef } from 'react';
 import { motion, Variants } from 'framer-motion';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChapterLabel, JpTooltip } from '@/components/ui';
 import { heroData } from '@/data/hero';
-
-gsap.registerPlugin(ScrollTrigger);
+import Image from 'next/image';
 
 /* ── Framer Motion variants ─────────────────────── */
 const fadeUp: Variants = {
@@ -144,7 +142,8 @@ export function HeroSection() {
     return () => {
       section.removeEventListener('mousemove', onMouseMove);
       section.removeEventListener('mouseleave', onMouseLeave);
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      // Note: HeroSection uses plain GSAP tweens (quickTo, gsap.to), not ScrollTrigger.
+      // Killing ALL ScrollTriggers here would nuke ProjectsSection & ExperienceSection.
     };
   }, []);
 
@@ -248,16 +247,20 @@ export function HeroSection() {
           transformStyle: 'preserve-3d',
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        {/* Next.js Image — priority since it's above the fold. No lazy load. */}
+        <Image
           src="/images/hero-character.png"
           alt="Prashant Saini — Developer"
+          width={600}
+          height={900}
+          priority={true}
           style={{
             /* 82vh tall — face starts hidden below, scroll reveals it */
             height: '82vh',
             width: 'auto',
             display: 'block',
             filter: 'drop-shadow(var(--shadow-lg))',
+            objectFit: 'contain',
           }}
         />
       </div>

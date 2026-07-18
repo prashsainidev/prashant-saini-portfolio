@@ -418,7 +418,7 @@ export function OpenSourceSection({ chapter = '07' }: { chapter?: string }) {
             <a
               href={firstStep.repo}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               data-cursor-view
               style={{
                 display: 'inline-flex',
@@ -606,7 +606,7 @@ export function OpenSourceSection({ chapter = '07' }: { chapter?: string }) {
               <a
                 href={activeSearch.repo}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 data-cursor-view
                 style={{
                   display: 'inline-flex',

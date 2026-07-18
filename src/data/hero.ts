@@ -5,12 +5,14 @@ export const heroData: IHero = {
   lastName: 'Saini',
   nameKanji: '誠一', // Thematic Japanese Name
   nameKanjiTranslation: 'The Sincere One', // Meaning of Seiichi
+  roleJP: 'フルスタック開発者', // "Full-Stack Developer" in Japanese — used in hero vertical text
   subtitle:
     'I build clean, practical web experiences with JavaScript, React.js, Node.js, and modern web tools.',
   role: 'Full-Stack Developer',
   location: 'Aligarh, India',
   locationJP: 'アリーガル、インド',
   availability: 'Available for work',
+
   resumeUrl: 'https://drive.google.com/file/d/13evi9mKUFX-Kew73ahhSEHth_jGa1uO_/view?usp=sharing',
   socials: [
     {
