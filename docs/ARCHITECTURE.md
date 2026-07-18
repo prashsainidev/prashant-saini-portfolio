@@ -44,6 +44,7 @@ v2-portfolio/
 │   │   │   ├── KanjiAccent.tsx      ← Reusable Kanji text component
 │   │   │   ├── MangaPanel.tsx       ← Comic panel grid layout component
 │   │   │   ├── MangaWarpCanvas.tsx  ← Canvas shader background
+│   │   │   ├── SmoothScroll.tsx     ← Lenis root provider (ReactLenis + GSAP ScrollTrigger sync)
 │   │   │   ├── ThemeToggle.tsx      ← Day/Night toggle
 │   │   │   └── index.ts             ← Barrel export
 │   │   │

@@ -12,3 +12,4 @@ export { ThemeToggle } from './ThemeToggle';
 export { MangaWarpCanvas } from './MangaWarpCanvas';
 export { AbstractWireframe } from './AbstractWireframe';
 export { JpTooltip } from './JpTooltip';
+export { SmoothScroll } from './SmoothScroll';

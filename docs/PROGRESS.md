@@ -70,6 +70,8 @@ Reference sites: slamdunk-five.vercel.app, bruno-simon.com, aristidebenoist.com
 - [x] **Performance** — Scoped global CSS `transition` to exclude `canvas` and `svg` — prevents GSAP animation jitter on theme toggle
 - [x] **Architecture** — Refactored `page.tsx` if-chain → `SECTION_MAP` Record pattern — future sections are now a 1-line addition
 - [x] **Docs** — Updated `ARCHITECTURE.md` with OpenSourceSection + corrected date
+- [x] **Lenis** — Initialized Lenis v1.3.25 via `SmoothScroll.tsx` (ReactLenis root) in `layout.tsx` — cinematic smooth scroll now active with GSAP ScrollTrigger sync
+- [x] **OpenGraph** — Created and added `og-image.png` to `public/images/og/` — social share previews now show the Japanese editorial card
 
 ## 📋 PENDING SECTIONS (IN ORDER — see docs/SECTION_FLOW.md for full spec)
 

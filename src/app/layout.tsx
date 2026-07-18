@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { Space_Grotesk, Noto_Sans_JP, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import { CustomCursor } from '@/components/ui';
+import { CustomCursor, SmoothScroll } from '@/components/ui';
 
 /* ============================================
    FONTS
@@ -53,10 +53,19 @@ export const metadata: Metadata = {
     title: 'Prashant Saini — Full-Stack Developer',
     description: 'Full-Stack Developer from Aligarh, India.',
     siteName: 'Prashant Saini Portfolio',
+    images: [
+      {
+        url: '/images/og/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Prashant Saini — Full-Stack Developer Portfolio',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     creator: '@prashsainidev',
+    images: ['/images/og/og-image.png'],
   },
   robots: { index: true, follow: true },
 };
@@ -96,9 +105,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body>
-        {/* Custom ink-drop cursor — desktop only */}
+        {/* Custom ink-drop cursor — desktop only, outside SmoothScroll so it isn't scroll-offset affected */}
         <CustomCursor />
-        {children}
+        {/* SmoothScroll — single Lenis instance for the entire app */}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
